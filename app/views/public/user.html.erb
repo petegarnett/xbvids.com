@@ -1,4 +1,7 @@
 <% if @user %>
+  <% content_for :additional_title do %>
+    <%= @user.gamertag %>'s latest game clips.
+  <% end %>
   <% if @videos.count > 0 %>
     <ul class="videos-grid">
       <% @videos.each do |video| %>

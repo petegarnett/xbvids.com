@@ -2,13 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
 body, html {
   margin: 0;
   padding: 0;
+
+  background: #333333;
+  color: #bdbec1;
 }
 
 p.notice, p.alert {
   display: none;
+}
+
+.header {
+  padding: 10px;
+  position: fixed;
+  background: #333333;
+  color: #bdbec1;
+  width: 100%;
+
+  a {
+    color: white;
+  }
+}
+
+.content {
+  padding-top: 42px;
 }
 
 .videos-grid {
