@@ -40,6 +40,10 @@
   ga('create', 'UA-2659691-9', 'auto');
   ga('send', 'pageview');
 
+  <% if user_signed_in? and current_user.gamertag %>
+    ga('set', '&uid', '<%= current_user.gamertag %>'); // Set the user ID using signed-in user_id.
+  <% end %>
+
 </script>
 
 </body>
