@@ -1,0 +1,15 @@
+<% if @videos.count > 0 %>
+  <ul class="videos-grid">
+    <% @videos.each do |video| %>
+      <li>
+        <a href="">
+          <img src="<%= video.thumbnail_large %>" />
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    You don't have any videos yet.
+  </p>
+<% end %>
