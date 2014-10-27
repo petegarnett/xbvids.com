@@ -57,7 +57,7 @@ namespace :xboneclips do
 
       puts "Uploading %s" % [video_location]
 
-      s3.buckets[bucket_name].objects[video_file_name].write(:file => video_location)
+      s3.buckets[bucket_name].objects[video_file_name].write(:file => video_location, :acl => :public_read)
 
       video.update_attributes(:is_uploaded => true)
     end
