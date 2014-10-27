@@ -1,5 +1,10 @@
 <h1>Settings</h1>
 
+<p>
+  <strong>Note:</strong> Videos are not downloaded in real-time, there will be a delay.  Also, make sure that your privacy settings
+  allow anyone to see the videos you create.
+</p>
+
 <form action="<%= settings_post_path %>" method="post" onsubmit="return confirm('Are you sure this is your gamertag?')">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 
