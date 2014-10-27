@@ -38,4 +38,28 @@ namespace :xboneclips do
       end
     end
   end
+
+  desc "Upload videos"
+  task :upload_videos => [:environment] do
+    require 'open-uri'
+
+    s3 = AWS::S3.new
+    bucket_name = 'xbone-clips'
+
+    Video.where(:is_uploaded => false).each do |video|
+      video_file_name = '%s.mp4' % [video.clip_id]
+      video_location = '/tmp/%s' % [video_file_name]
+
+      puts "Downloading %s to %s" % [video.clip_id, video_location]
+      open(video_location, 'wb') do |file|
+        file << open(video.source_uri).read
+      end
+
+      puts "Uploading %s" % [video_location]
+
+      s3.buckets[bucket_name].objects[video_file_name].write(:file => video_location)
+
+      video.update_attributes(:is_uploaded => true)
+    end
+  end
 end

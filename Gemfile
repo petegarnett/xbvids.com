@@ -40,3 +40,4 @@ gem 'spring',        group: :development
 
 gem 'httparty'
 gem 'devise'
+gem 'aws-sdk'
