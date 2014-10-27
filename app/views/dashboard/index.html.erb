@@ -2,7 +2,7 @@
   <ul class="videos-grid">
     <% @videos.each do |video| %>
       <li>
-        <a href="">
+        <a href="<%= clip_path(video.clip_id) %>">
           <img src="<%= video.thumbnail_large %>" />
         </a>
       </li>

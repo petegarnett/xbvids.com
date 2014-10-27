@@ -1,0 +1,21 @@
+<% if @user %>
+  <% if @videos.count > 0 %>
+    <ul class="videos-grid">
+      <% @videos.each do |video| %>
+        <li>
+          <a href="<%= clip_path(video.clip_id) %>">
+            <img src="<%= video.thumbnail_large %>" />
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>
+      <%= @user.gamertag %> has not uploaded any videos yet.
+    </p>
+  <% end %>
+<% else %>
+  <p>
+    User not found.
+  </p>
+<% end %>

@@ -1,0 +1,9 @@
+<% if @video %>
+  <video src="https://s3-eu-west-1.amazonaws.com/xbone-clips/<%= @video.clip_id %>.mp4" autoplay poster="<%= @video.thumbnail_large %>" style="width: 100%; height: 100%;">
+
+  </video>
+<% else %>
+  <p>
+    Clip not found.
+  </p>
+<% end %>
