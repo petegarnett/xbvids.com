@@ -20,6 +20,8 @@ class DashboardController < ApplicationController
 
     current_user.update_attributes(:gamertag => gamertag)
 
+    FetchClipsWorker.perform_async(current_user.id)
+
     redirect_to root_path
   end
 end
