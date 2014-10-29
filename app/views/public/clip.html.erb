@@ -2,7 +2,7 @@
   <% content_for :additional_title do %>
     <%= @video.title %> by <%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %>.
   <% end %>
-  <video src="<%= @video.cdn_clip_url %>" autoplay poster="<%= @video.cdn_thumbnail_url %>" style="width: 100%; height: 100%;">
+  <video src="<%= @video.cdn_clip_url %>" autoplay controls poster="<%= @video.cdn_thumbnail_url %>" style="width: 100%; height: 100%;">
 
   </video>
 <% else %>
