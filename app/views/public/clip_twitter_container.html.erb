@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <style type="text/css">
+  body, html {
+    margin: 0;
+    padding: 0;
+    background: #000;
+  }
+
+  video {
+     width:100%;
+     height:auto;
+  }
+  </style>
+
+  <video width="100%" controls>
+  <source src="<%= @video.cdn_clip_url %>" type="video/mp4">
+    Your browser does not support video
+  </video>
+
+  <%= render 'global/ga' %>
+</body>
+</html>

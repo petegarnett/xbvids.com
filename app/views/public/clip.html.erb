@@ -2,6 +2,20 @@
   <% content_for :additional_title do %>
     <%= @video.title %> by <%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %>.
   <% end %>
+
+  <% content_for :additional_head do %>
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@xbclips">
+    <meta name="twitter:title" content="<%= @video.title %> by <%= @video.user.gamertag %> on XB Clips">
+    <meta name="twitter:description" content="A clip of <%= @video.user.gamertag %> playing <%= @video.title %>.">
+    <meta name="twitter:image" content="<%= @video.cdn_thumbnail_url %>">
+    <meta name="twitter:player" content="<%= twitter_player_container_url(@video.clip_id) %>">
+    <meta name="twitter:player:width" content="1280">
+    <meta name="twitter:player:height" content="720">
+    <meta name="twitter:player:stream" content="<%= @video.cdn_clip_url %>">
+    <meta name="twitter:player:stream:content_type" content="video/mp4">
+  <% end %>
+
   <video src="<%= @video.cdn_clip_url %>" autoplay controls poster="<%= @video.cdn_thumbnail_url %>" style="width: 100%; height: 100%;">
 
   </video>

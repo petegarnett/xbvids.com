@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'user/:user_id' => 'public#user', as: 'user'
   get 'clip/:clip_id' => 'public#clip', as: 'clip'
+  get 'clip/:clip_id/twitter_container' => 'public#clip_twitter_container', as: 'twitter_player_container'
 
   get 'home' => 'public#home', as: 'home'
   get 'users' => 'public#users', as: 'users'
