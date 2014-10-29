@@ -4,8 +4,8 @@ json.clip_id video.clip_id
 json.recorded_at video.recorded_at
 
 json.clip do
-  json.video_url "https://s3-eu-west-1.amazonaws.com/xbone-clips/%s.mp4" % [video.clip_id]
-  json.thumbnail_url "https://s3-eu-west-1.amazonaws.com/xbone-thumbnails/%s.png" % [video.clip_id]
+  json.video_url video.cdn_clip_url
+  json.thumbnail_url video.cdn_thumbnail_url
   json.why video.clip_type
   json.is_uploaded video.is_uploaded
 end
