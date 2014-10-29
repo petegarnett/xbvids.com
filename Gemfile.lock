@@ -56,6 +56,7 @@ GEM
     erubis (2.7.0)
     execjs (2.2.2)
     hike (1.2.3)
+    hirefire-resource (0.3.4)
     httparty (0.13.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -159,6 +160,7 @@ DEPENDENCIES
   aws-sdk
   coffee-rails (~> 4.0.0)
   devise
+  hirefire-resource
   httparty
   jbuilder (~> 2.0)
   jquery-rails

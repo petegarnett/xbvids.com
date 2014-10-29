@@ -44,3 +44,4 @@ gem 'aws-sdk'
 gem 'rails_12factor', group: :production
 gem 'unicorn'
 gem 'sidekiq'
+gem "hirefire-resource"
