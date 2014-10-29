@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'settings' => 'dashboard#settings'
   post 'settings' => 'dashboard#settings_post', as: 'settings_post'
 
-  get 'feed/twitter', defaults: { format: :xml }
+  get 'feed/twitter', defaults: { format: :xml }, as: 'twitter_feed'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
