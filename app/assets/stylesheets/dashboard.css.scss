@@ -140,3 +140,19 @@ form div {
 .users-list {
   margin-bottom: 1em;
 }
+
+.badge {
+  display: inline-block;
+  padding: 4px 4px 3px 4px;
+  font-size: 8px;
+  border-radius: 7px;
+  text-transform: uppercase;
+
+  position: relative;
+  top: -2px;
+
+  &.pro {
+    background: #9757E1;
+    color: white;
+  }
+}

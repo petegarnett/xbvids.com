@@ -3,6 +3,9 @@
     <%= @user.gamertag %>'s latest Xbox One game clips.
   <% end %>
   <% content_for :title_bar do %>
+    <% if @user.is_pro? %>
+      <span class="badge pro">pro</span>
+    <% end %>
     <%= @user.gamertag %>'s latest game clips.
   <% end %>
   <% if @videos.count > 0 %>
