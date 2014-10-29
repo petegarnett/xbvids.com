@@ -2,20 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-* {
-  font-family: 'Open Sans', sans-serif;
-}
+$dark-grey: #333;
+$light-grey: #bdbec1;
 
 body, html {
   margin: 0;
   padding: 0;
 
-  background: #333333;
-  color: #bdbec1;
+  background: $dark-grey;
+  color: $light-grey;
+
+  font-family: 'Open Sans', sans-serif;
 }
 
 p.notice, p.alert {
   display: none;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
+
+a {
+  color: white;
+}
+
+form div {
+  margin-bottom: 0.3em;
+
+  label {
+    display: inline-block;
+    margin-bottom: 0.2em;
+  }
+
+  input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+  }
 }
 
 .header {
@@ -24,14 +53,23 @@ p.notice, p.alert {
   background: #333333;
   color: #bdbec1;
   width: 100%;
-
-  a {
-    color: white;
-  }
 }
 
 .content {
   padding-top: 42px;
+}
+
+.content.central {
+  padding-top: 0;
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
+  min-width: 500px;
+  background: lighten($dark-grey, 10%);
+
+  .inner {
+    padding: 20px;
+  }
 }
 
 .videos-grid {
