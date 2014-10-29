@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:additional_title) %> - Xbox One Game Clips</title>
+  <title>
+    <%= content_for?(:title) ? yield(:title) : "Xbox One Game Clips" %>
+  </title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -16,7 +19,7 @@
 <p class="alert"><%= alert %></p>
 
 <div class="header">
-  <%= yield(:additional_title) %>
+  <%= yield(:title_bar) %>
   <% if user_signed_in? %>
     You are logged in as <%= current_user.email %>.
     <%= link_to "Log out", destroy_user_session_path, :method => :delete, :data => { :confirm => 'Are you sure you want to log out?' } %>.

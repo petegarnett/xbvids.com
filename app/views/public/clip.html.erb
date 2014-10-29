@@ -1,5 +1,8 @@
 <% if @video %>
-  <% content_for :additional_title do %>
+  <% content_for :title do %>
+    <%= @video.title %> by <%= @video.user.gamertag %>
+  <% end %>
+  <% content_for :title_bar do %>
     <%= @video.title %> by <%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %>.
   <% end %>
 
@@ -20,6 +23,9 @@
 
   </video>
 <% else %>
+  <% content_for :title do %>
+    Clip not found.
+  <% end %>
   <p>
     Clip not found.
   </p>
