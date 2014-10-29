@@ -40,6 +40,7 @@ class FetchClipsWorker
           user.videos << video
 
           UploadClipWorker.perform_async(video.clip_id)
+          UploadThumbnailWorker.perform_async(video.clip_id)
         end
       end
     end
