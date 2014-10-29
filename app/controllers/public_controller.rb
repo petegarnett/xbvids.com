@@ -12,7 +12,10 @@ class PublicController < ApplicationController
   end
 
   def home
-    @users = User.all
     @videos = Video.all
+  end
+
+  def users
+    @users = User.all
   end
 end

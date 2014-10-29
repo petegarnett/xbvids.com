@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'clip/:clip_id' => 'public#clip', as: 'clip'
 
   get 'home' => 'public#home', as: 'home'
+  get 'users' => 'public#users', as: 'users'
 
   root 'dashboard#index'
 
