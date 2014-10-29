@@ -2,7 +2,7 @@
   <% content_for :additional_title do %>
     <%= @video.title %> by <%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %>.
   <% end %>
-  <video src="https://s3-eu-west-1.amazonaws.com/xbone-clips/<%= @video.clip_id %>.mp4" autoplay poster="<%= @video.thumbnail_large %>" style="width: 100%; height: 100%;">
+  <video src="https://s3-eu-west-1.amazonaws.com/xbone-clips/<%= @video.clip_id %>.mp4" autoplay poster="https://s3-eu-west-1.amazonaws.com/xbone-thumbnails/<%= @video.clip_id %>.png" style="width: 100%; height: 100%;">
 
   </video>
 <% else %>
