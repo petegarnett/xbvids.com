@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'home' => 'public#home', as: 'home'
   get 'users' => 'public#users', as: 'users'
 
-  root 'dashboard#index'
+  root 'public#home'
 
+  get 'dashboard' => 'dashboard#index', as: 'dashboard'
   get 'settings' => 'dashboard#settings'
   post 'settings' => 'dashboard#settings_post', as: 'settings_post'
 
