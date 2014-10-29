@@ -21,6 +21,7 @@ p.notice, p.alert {
 
 h1 {
   font-size: 2em;
+  margin-bottom: 0.4em;
 }
 
 h2 {
@@ -87,6 +88,13 @@ form div {
 
     float: left;
 
+    img {
+      width: 100%;
+      vertical-align: bottom;
+    }
+  }
+
+  li {
     width: 20%;
 
     @media (max-width: 1200px) {
@@ -104,10 +112,31 @@ form div {
     @media (max-width: 400px) {
       width: 100%;
     }
+  }
 
-    img {
-      width: 100%;
-      vertical-align: bottom;
+  &.small {
+    li {
+      width: 10%;
+
+      @media (max-width: 1200px) {
+        width: 25%/2;
+      }
+
+      @media (max-width: 900px) {
+        width: (100%/3)/2;
+      }
+
+      @media (max-width: 600px) {
+        width: 50%/2;
+      }
+
+      @media (max-width: 400px) {
+        width: 100%;
+      }
     }
   }
+}
+
+.users-list {
+  margin-bottom: 1em;
 }

@@ -10,4 +10,9 @@ class PublicController < ApplicationController
   def clip
     @video = Video.find_by_clip_id(params[:clip_id])
   end
+
+  def home
+    @users = User.all
+    @videos = Video.all
+  end
 end
