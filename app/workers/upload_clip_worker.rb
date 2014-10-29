@@ -1,4 +1,4 @@
-class UploadClipsWorker
+class UploadClipWorker
   include Sidekiq::Worker
 
   def perform(video_clip_id)
