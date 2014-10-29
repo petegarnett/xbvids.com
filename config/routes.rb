@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   get 'feed/twitter', defaults: { format: :xml }, as: 'twitter_feed'
 
   devise_for :users
+
+  namespace :api do
+    namespace :v1 do
+      get 'videos/firehose'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
