@@ -1,4 +1,6 @@
 class PublicController < ApplicationController
+  before_filter :allow_iframe_requests, only: :clip_twitter_container
+
   def user
     @user = User.find_by_gamertag(params[:user_id])
 
@@ -23,4 +25,9 @@ class PublicController < ApplicationController
   def users
     @users = User.all
   end
+
+  protected
+    def allow_iframe_requests
+      response.headers.delete('X-Frame-Options')
+    end
 end
