@@ -1,0 +1,34 @@
+<% if @game %>
+  <% content_for :title do %>
+    <%= @game.name %>'s latest Xbox One game clips.
+  <% end %>
+  <% content_for :title_bar do %>
+    Latest <%= @game.name %> clips.
+  <% end %>
+
+  <% if @videos.count > 0 %>
+    <ul class="videos-grid">
+      <% @videos.each do |video| %>
+        <li>
+          <a href="<%= clip_path(video.clip_id) %>">
+            <% if video.is_uploaded? %>
+              <img class="lazy responsive" data-original="<%= video.cdn_thumbnail_url %>" />
+            <% else %>
+              <p>
+                Still uploading.
+              </p>
+            <% end %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>
+      No clips for <%= @game.name %> yet.
+    </p>
+  <% end %>
+<% else %>
+  <p>
+    Game not found.
+  </p>
+<% end %>

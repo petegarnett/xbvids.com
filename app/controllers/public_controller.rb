@@ -33,6 +33,14 @@ class PublicController < ApplicationController
     @games = Game.all
   end
 
+  def game
+    @game = Game.find_by_xgid(params[:game_id])
+
+    if @game
+      @videos = @game.videos.uploaded.order('recorded_at DESC')
+    end
+  end
+
   protected
     def allow_iframe_requests
       response.headers.delete('X-Frame-Options')
