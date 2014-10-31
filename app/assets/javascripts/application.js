@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ./lib/moment
+//= require ./lib/flowplayer
+//= require ./lib/asf.min
 //= require_tree ./lib
 //= require_tree .
 
