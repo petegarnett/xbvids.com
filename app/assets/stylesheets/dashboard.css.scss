@@ -103,6 +103,9 @@ body.fixed-header {
     img {
       width: 100%;
       vertical-align: bottom;
+
+      min-width: 1px;
+      min-height: 1px;
     }
   }
 
