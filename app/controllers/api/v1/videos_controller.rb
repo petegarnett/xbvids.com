@@ -34,6 +34,7 @@ module Api
             .includes(:user)
             .paginate(:page => 1, :per_page => count)
             .where('id > ?', cursor)
+            .order('recorded_at DESC')
         end
     end
   end

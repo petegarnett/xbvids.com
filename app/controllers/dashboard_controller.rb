@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
       return
     end
 
-    @videos = current_user.videos
+    @videos = current_user.videos.uploaded.order('recorded_at DESC')
   end
 
   def settings

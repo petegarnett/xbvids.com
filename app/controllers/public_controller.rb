@@ -5,7 +5,7 @@ class PublicController < ApplicationController
     @user = User.find_by_gamertag(params[:user_id])
 
     if @user
-      @videos = @user.videos.uploaded
+      @videos = @user.videos.uploaded.order('recorded_at DESC')
     end
   end
 
@@ -17,12 +17,12 @@ class PublicController < ApplicationController
 
   def clip_twitter_container
     @video = Video.find_by_clip_id(params[:clip_id])
-    
+
     render :layout => nil
   end
 
   def home
-    @videos = Video.uploaded
+    @videos = Video.uploaded.order('recorded_at DESC')
   end
 
   def users
