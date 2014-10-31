@@ -195,6 +195,14 @@ body.player {
       margin-left: 20px;
       float: right;
     }
+
+    .like-box {
+      display: inline-block;
+
+      form {
+        display: inline-block;
+      }
+    }
   }
 
   .footer {

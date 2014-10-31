@@ -42,16 +42,18 @@
       <% end %>
 
       <span data-livestamp="<%= @video.recorded_at.to_time.to_i %>">on <%= @video.recorded_at %></span>
+    </h1>
 
-      <p>
+    <div class="like-box">
+      <span>
         Likes: <%= @video.like_count %>
-      </p>
+      </span>
 
       <form action="<%= vote_path(@video.clip_id) %>" method="post">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
         <input type="submit" value="Like!" />
       </form>
-    </h1>
+    </div>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="xbclips">Tweet</a>
   </div>
