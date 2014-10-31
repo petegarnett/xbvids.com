@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+(function () {
+  var timer;
+
+  document.onmousemove = function () {
+    $('body').addClass('mouse-moving');
+
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      $('body').removeClass('mouse-moving');
+    }, 2000);
+  };
+
+})();

@@ -23,7 +23,20 @@
     <meta name="twitter:player:stream:content_type" content="video/mp4">
   <% end %>
 
-  <video src="<%= @video.cdn_clip_url %>" autoplay controls poster="<%= @video.cdn_thumbnail_url %>" style="width: 100%; height: 100%;"></video>
+  <% content_for :additional_footer do %>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <% end %>
+
+  <div class="header">
+    <h1><%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %> playing <%= @video.title %></h1>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="xbclips">Tweet</a>
+  </div>
+
+  <div class="content">
+    <video src="<%= @video.cdn_clip_url %>" autoplay controls poster="<%= @video.cdn_thumbnail_url %>"></video>
+  </div>
+
 <% elsif @video and not @video.is_uploaded? %>
   <p>Clip has not been uploaded yet!</p>
 <% else %>

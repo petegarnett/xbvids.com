@@ -13,7 +13,7 @@
 
   <%= yield(:additional_head) %>
 </head>
-<body>
+<body class="fixed-header">
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
@@ -37,6 +37,9 @@
 </div>
 
 <%= render 'global/ga' %>
+
+<%= yield(:additional_footer) %>
+
 
 </body>
 </html>
