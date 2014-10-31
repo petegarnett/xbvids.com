@@ -31,7 +31,7 @@ class FetchClipsWorker
         game_title_id = clip['titleId']
 
         unless Video.find_by_clip_id(clip_id)
-          game = Game.find_by_title_id(game_title_id)
+          game = Game.find_by_title_id(game_title_id.to_s)
 
           if game.nil?
             game = Game.create({

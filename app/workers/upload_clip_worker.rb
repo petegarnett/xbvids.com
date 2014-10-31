@@ -9,7 +9,7 @@ class UploadClipWorker
 
     video = Video.find_by_clip_id video_clip_id
 
-    unless video.is_uploaded
+    unless video.is_clip_uploaded
       video_file_name = '%s.mp4' % [video.clip_id]
       video_location = '/tmp/%s' % [video_file_name]
 
