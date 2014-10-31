@@ -33,7 +33,13 @@
       <% if @video.user.is_pro? %>
         <span class="badge pro">pro</span>
       <% end %>
-      playing <%= link_to @video.title, game_path(@video.game.xgid) %>
+      playing
+
+      <% if @video.game %>
+        <%= link_to @video.title, game_path(@video.game.xgid) %>
+      <% else %>
+        <%= @video.title %>
+      <% end %>
     </h1>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="xbclips">Tweet</a>
