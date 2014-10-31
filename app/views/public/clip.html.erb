@@ -1,4 +1,4 @@
-<% if @video %>
+<% if @video && @video.is_uploaded? %>
   <% content_for :title do %>
     <%= @video.title %> by <%= @video.user.gamertag %>
   <% end %>
@@ -23,9 +23,9 @@
     <meta name="twitter:player:stream:content_type" content="video/mp4">
   <% end %>
 
-  <video src="<%= @video.cdn_clip_url %>" autoplay controls poster="<%= @video.cdn_thumbnail_url %>" style="width: 100%; height: 100%;">
-
-  </video>
+  <video src="<%= @video.cdn_clip_url %>" autoplay controls poster="<%= @video.cdn_thumbnail_url %>" style="width: 100%; height: 100%;"></video>
+<% elsif @video and not @video.is_uploaded? %>
+  <p>Clip has not been uploaded yet!</p>
 <% else %>
   <% content_for :title do %>
     Clip not found.
