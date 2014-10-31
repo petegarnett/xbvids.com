@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
+//= require ./lib/moment
 //= require_tree ./lib
 //= require_tree .
 

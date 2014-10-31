@@ -40,13 +40,18 @@
       <% else %>
         <%= @video.title %>
       <% end %>
+      <span data-livestamp="<%= @video.recorded_at.to_time.to_i %>">on <%= @video.recorded_at %></span>
     </h1>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="xbclips">Tweet</a>
   </div>
+    <div class="flowplayer">
+      <video autoplay controls poster="<%= @video.cdn_thumbnail_url %>">
+        <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
+      </video>
+    </div>
 
   <div class="content">
-    <video src="<%= @video.cdn_clip_url %>" autoplay controls poster="<%= @video.cdn_thumbnail_url %>"></video>
   </div>
 
   <div class="footer">
