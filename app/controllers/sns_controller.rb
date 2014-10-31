@@ -36,6 +36,8 @@ class SnsController < ApplicationController
 
       if video
         video.update_attributes(:is_clip_transcoded => true)
+
+        head 200
       end
     end
   end
