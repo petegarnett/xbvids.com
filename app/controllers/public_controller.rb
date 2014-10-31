@@ -16,7 +16,8 @@ class PublicController < ApplicationController
   end
 
   def clip_twitter_container
-    clip()
+    @video = Video.find_by_clip_id(params[:clip_id])
+    
     render :layout => nil
   end
 
