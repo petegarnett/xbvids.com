@@ -27,7 +27,20 @@ class FetchClipsWorker
         source_uri = clip['gameClipUris'][0]['uri']
         title = clip['titleName']
 
+        game_title_id = clip['titleId']
+
         unless Video.find_by_clip_id(clip_id)
+          game = Game.find_by_title_id(game_title_id)
+
+          if game.nil?
+            game = Game.create({
+              :title_id => game_title_id,
+              :name     => title
+            })
+
+            FetchGameWorker.perform_async(game.id)
+          end
+
           video = Video.create({
             :clip_id => clip_id,
             :recorded_at => recorded_at,
@@ -38,6 +51,7 @@ class FetchClipsWorker
           })
 
           user.videos << video
+          game.videos << video
 
           UploadClipWorker.perform_async(video.clip_id)
           UploadThumbnailWorker.perform_async(video.clip_id)

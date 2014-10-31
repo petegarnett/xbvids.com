@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031084730) do
+ActiveRecord::Schema.define(version: 20141031123000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: true do |t|
+    t.string   "xgid"
+    t.string   "name"
+    t.text     "description"
+    t.string   "developer"
+    t.string   "image_box"
+    t.string   "image_hero_title"
+    t.string   "image_hero_super"
+    t.integer  "rating"
+    t.string   "title_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -48,6 +62,7 @@ ActiveRecord::Schema.define(version: 20141031084730) do
     t.integer  "user_id"
     t.boolean  "is_thumbnail_uploaded"
     t.boolean  "is_clip_uploaded"
+    t.integer  "game_id"
   end
 
 end

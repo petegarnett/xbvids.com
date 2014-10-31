@@ -17,4 +17,8 @@ class XboxService
   def gameclips(xuid)
     self.class.get('/v2/%d/game-clips' % [xuid], @options)
   end
+
+  def game(title_id)
+    self.class.get('/v2/game-details-hex/%x' % [title_id], @options)["Items"][0]
+  end
 end

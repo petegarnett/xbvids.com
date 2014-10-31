@@ -1,5 +1,6 @@
 class Video < ActiveRecord::Base
   belongs_to :user
+  belongs_to :game
 
   scope :uploaded, -> { where(:is_thumbnail_uploaded => true, :is_clip_uploaded => true) }
 
