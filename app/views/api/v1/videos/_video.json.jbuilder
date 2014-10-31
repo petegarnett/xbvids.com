@@ -13,6 +13,7 @@ end
 
 json.game do
   json.title video.title
+  json.image_box (video.game) ? video.game.image_box : nil
 end
 
 json.user do
