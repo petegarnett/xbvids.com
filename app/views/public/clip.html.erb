@@ -41,6 +41,8 @@
         <%= @video.title %>
       <% end %>
 
+      <span data-livestamp="<%= @video.recorded_at.to_time.to_i %>">on <%= @video.recorded_at %></span>
+
       <p>
         Likes: <%= @video.like_count %>
       </p>
@@ -55,7 +57,11 @@
   </div>
 
   <div class="content">
-    <video src="<%= @video.cdn_clip_url %>" autoplay controls poster="<%= @video.cdn_thumbnail_url %>"></video>
+    <div class="flowplayer">
+      <video autoplay controls poster="<%= @video.cdn_thumbnail_url %>">
+        <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
+      </video>
+    </div>
   </div>
 
   <div class="footer">
