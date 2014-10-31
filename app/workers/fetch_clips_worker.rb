@@ -26,6 +26,7 @@ class FetchClipsWorker
         thumbnail_large = clip['thumbnails'][1]['uri']
         source_uri = clip['gameClipUris'][0]['uri']
         title = clip['titleName']
+        user_caption = clip['userCaption']
 
         game_title_id = clip['titleId']
 
@@ -47,7 +48,8 @@ class FetchClipsWorker
             :clip_type => clip_type,
             :thumbnail_large => thumbnail_large,
             :source_uri => source_uri,
-            :title => title
+            :title => title,
+            :caption => user_caption
           })
 
           user.videos << video
