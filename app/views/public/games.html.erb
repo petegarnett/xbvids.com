@@ -6,7 +6,7 @@
       <% if game.xgid %>
         <li>
           <a href="<%= game_path(game.xgid) %>">
-            <img src="<%= game.image_box %>" width="100" />
+            <img src="<%= ImageHelper.resized(game.image_box, 100) %>" />
           </a>
         </li>
       <% end %>
