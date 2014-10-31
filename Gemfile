@@ -48,4 +48,4 @@ gem "hirefire-resource"
 gem 'will_paginate'
 
 gem 'newrelic_rpm'
-
+gem 'jquery-turbolinks'
