@@ -23,6 +23,8 @@ class UploadClipWorker
       s3.buckets[bucket_name].objects[video_file_name].write(:file => video_location, :acl => :public_read)
 
       video.update_attributes(:is_clip_uploaded => true)
+
+      TranscodeClipWorker.perform_async(video.clip_id)
     end
   end
 end
