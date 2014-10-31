@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sitemap.xml' => 'sitemap#xml', defaults: { format: :xml }
+
   get 'user/:user_id' => 'public#user', as: 'user'
   get 'clip/:clip_id' => 'public#clip', as: 'clip'
   get 'clip/:clip_id/twitter_container' => 'public#clip_twitter_container', as: 'twitter_player_container'
