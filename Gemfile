@@ -46,3 +46,6 @@ gem 'unicorn'
 gem 'sidekiq'
 gem "hirefire-resource"
 gem 'will_paginate'
+
+gem 'newrelic_rpm'
+
