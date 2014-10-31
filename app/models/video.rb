@@ -8,4 +8,8 @@ class Video < ActiveRecord::Base
   def cdn_thumbnail_url
     return "https://d3s9v1x1919qoo.cloudfront.net/%s.png" % [clip_id]
   end
+
+  def is_uploaded?
+    is_thumbnail_uploaded and is_clip_uploaded
+  end
 end
