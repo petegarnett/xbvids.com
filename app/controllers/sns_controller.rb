@@ -31,7 +31,7 @@ class SnsController < ApplicationController
     if message.type == :SubscriptionConfirmation
       HTTParty.get message.subscribe_url
     elsif message.type == :Notification
-      
+      logger.info request.raw_post
     end
   end
 end
