@@ -5,7 +5,7 @@ class PublicController < ApplicationController
     @user = User.find_by_gamertag(params[:user_id])
 
     if @user
-      @videos = @user.videos
+      @videos = @user.videos.uploaded
     end
   end
 
@@ -19,7 +19,7 @@ class PublicController < ApplicationController
   end
 
   def home
-    @videos = Video.all
+    @videos = Video.uploaded
   end
 
   def users

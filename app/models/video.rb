@@ -1,6 +1,8 @@
 class Video < ActiveRecord::Base
   belongs_to :user
 
+  scope :uploaded, -> { where(:is_thumbnail_uploaded => true, :is_clip_uploaded => true) }
+
   def cdn_clip_url
     return "https://d28pv9m582c384.cloudfront.net/%s.mp4" % [clip_id]
   end
