@@ -31,7 +31,12 @@ class SnsController < ApplicationController
     if message.type == :SubscriptionConfirmation
       HTTParty.get message.subscribe_url
     elsif message.type == :Notification
-      logger.info request.raw_post
+      video_clip_id = message.message['input']['key'].gsub(/\.mp4$/, '')
+      video = View.find_by_clip_id video_clip_id
+
+      if video
+        video.update_attributes(:is_clip_transcoded => true)
+      end
     end
   end
 end
