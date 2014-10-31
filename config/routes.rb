@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'home' => 'public#home', as: 'home'
   get 'users' => 'public#users', as: 'users'
+  get 'games' => 'public#games', as: 'games'
 
   root 'public#home'
 

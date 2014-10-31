@@ -153,6 +153,13 @@ body.fixed-header {
   margin-bottom: 1em;
 }
 
+.games-list {
+  li {
+    float: left;
+  }
+  margin-bottom: 1em;
+}
+
 .badge {
   display: inline-block;
   padding: 4px 4px 3px 4px;

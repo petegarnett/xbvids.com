@@ -1,0 +1,15 @@
+<h1>Games</h1>
+
+<% if @games.count > 0 %>
+  <ul class="games-list">
+    <% @games.each do |game| %>
+      <li>
+        <img src="<%= game.image_box %>" width="100" />
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    No games yet!
+  </p>
+<% end %>

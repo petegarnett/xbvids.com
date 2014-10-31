@@ -29,6 +29,10 @@ class PublicController < ApplicationController
     @users = User.all
   end
 
+  def games
+    @games = Game.all
+  end
+
   protected
     def allow_iframe_requests
       response.headers.delete('X-Frame-Options')
