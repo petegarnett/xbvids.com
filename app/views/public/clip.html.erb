@@ -40,6 +40,15 @@
       <% else %>
         <%= @video.title %>
       <% end %>
+
+      <p>
+        Likes: <%= @video.like_count %>
+      </p>
+
+      <form action="<%= vote_path(@video.clip_id) %>" method="post">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
+        <input type="submit" value="Like!" />
+      </form>
     </h1>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="xbclips">Tweet</a>

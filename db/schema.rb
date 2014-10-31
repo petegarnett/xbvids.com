@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031123000) do
+ActiveRecord::Schema.define(version: 20141031151208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141031123000) do
     t.string   "title_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_poster"
   end
 
   create_table "users", force: true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20141031123000) do
     t.boolean  "is_thumbnail_uploaded"
     t.boolean  "is_clip_uploaded"
     t.integer  "game_id"
+    t.integer  "like_count"
   end
 
 end

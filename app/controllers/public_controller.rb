@@ -41,6 +41,16 @@ class PublicController < ApplicationController
     end
   end
 
+  def vote
+    video = Video.find_by_clip_id(params[:clip_id])
+
+    if video
+      Video.increment_counter(:like_count, video.id)
+    end
+
+    redirect_to clip_path(video[:clip_id])
+  end
+
   protected
     def allow_iframe_requests
       response.headers.delete('X-Frame-Options')
