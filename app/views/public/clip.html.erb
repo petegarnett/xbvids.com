@@ -28,7 +28,13 @@
   <% end %>
 
   <div class="header">
-    <h1><%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %> playing <%= @video.title %></h1>
+    <h1>
+      <%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %>
+      <% if @video.user.is_pro? %>
+        <span class="badge pro">pro</span>
+      <% end %>
+      playing <%= @video.title %>
+    </h1>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="xbclips">Tweet</a>
   </div>
