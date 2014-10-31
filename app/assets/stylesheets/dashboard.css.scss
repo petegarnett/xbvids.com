@@ -187,10 +187,26 @@ body.player {
     }
   }
 
+  .footer {
+    -webkit-transition: all ease 0.3s;
+
+    position: absolute;
+    bottom: -500px;
+    left: 10px;
+
+    .box-art {
+      width: 150px;
+    }
+  }
+
   &.mouse-moving {
     .content {
-      -webkit-transform: scale(0.95);
-      -webkit-transform-origin: bottom center;
+      -webkit-transform: scale(0.9);
+      -webkit-transform-origin: center center;
+    }
+
+    .footer {
+      bottom: 0;
     }
   }
 

@@ -43,6 +43,12 @@
     <video src="<%= @video.cdn_clip_url %>" autoplay controls poster="<%= @video.cdn_thumbnail_url %>"></video>
   </div>
 
+  <div class="footer">
+    <% if @video.game %>
+      <img class="box-art" src="<%= @video.game.image_box %>" />
+    <% end %>
+  </div>
+
 <% elsif @video and not @video.is_uploaded? %>
   <p>Clip has not been uploaded yet!</p>
 <% else %>
