@@ -30,6 +30,7 @@ module Api
           end
 
           return Video
+            .uploaded
             .includes(:user)
             .paginate(:page => 1, :per_page => count)
             .where('id > ?', cursor)

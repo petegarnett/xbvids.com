@@ -5,7 +5,8 @@ json.recorded_at video.recorded_at
 
 json.clip do
   json.video_url video.cdn_clip_url
-  json.thumbnail_url video.cdn_thumbnail_url
+  json.large_thumbnail_url video.cdn_thumbnail_url
+  json.small_thumbnail_url video.cdn_thumbnail_url
   json.why video.clip_type
   json.is_uploaded video.is_uploaded?
 end
