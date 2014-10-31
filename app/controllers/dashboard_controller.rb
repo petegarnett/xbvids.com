@@ -4,18 +4,18 @@ class DashboardController < ApplicationController
 
   def index
     if current_user.gamertag.nil?
-      redirect_to settings_path
+      redirect_to profile_path
       return
     end
 
     @videos = current_user.videos.uploaded.order('recorded_at DESC')
   end
 
-  def settings
+  def profile
 
   end
 
-  def settings_post
+  def profile_post
     gamertag = params[:gamertag]
 
     current_user.update_attributes(:gamertag => gamertag)

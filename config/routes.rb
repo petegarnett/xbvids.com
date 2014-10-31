@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   root 'public#home'
 
   get 'dashboard' => 'dashboard#index', as: 'dashboard'
-  get 'settings' => 'dashboard#settings'
-  post 'settings' => 'dashboard#settings_post', as: 'settings_post'
+  get 'profile' => 'dashboard#profile'
+  post 'profile' => 'dashboard#profile_post', as: 'profile_post'
 
   get 'feed/twitter', defaults: { format: :xml }, as: 'twitter_feed'
 
