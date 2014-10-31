@@ -45,13 +45,13 @@
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="xbclips">Tweet</a>
   </div>
+
+  <div class="content">
     <div class="flowplayer">
       <video autoplay controls poster="<%= @video.cdn_thumbnail_url %>">
         <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
       </video>
     </div>
-
-  <div class="content">
   </div>
 
   <div class="footer">
