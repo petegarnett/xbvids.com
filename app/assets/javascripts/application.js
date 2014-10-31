@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require_tree ./lib
 //= require_tree .
 
 
@@ -29,3 +30,9 @@
   };
 
 })();
+
+$(function() {
+    $("img.lazy").lazyload({
+      effect: 'fadeIn'
+    });
+});

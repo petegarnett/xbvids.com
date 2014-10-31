@@ -14,7 +14,7 @@
         <li>
           <a href="<%= clip_path(video.clip_id) %>">
             <% if video.is_uploaded? %>
-              <img src="<%= video.cdn_thumbnail_url %>" />
+              <img class="lazy responsive" data-original="<%= video.cdn_thumbnail_url %>" />
             <% else %>
               <p>
                 Still uploading.

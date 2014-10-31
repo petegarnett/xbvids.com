@@ -49,6 +49,15 @@ form div {
   }
 }
 
+img {
+  border: 0;
+}
+
+img.responsive {
+  max-width: 100%;
+  height: auto;
+}
+
 .header {
   padding: 10px;
   position: fixed;
