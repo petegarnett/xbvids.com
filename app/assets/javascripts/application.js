@@ -38,3 +38,22 @@ $(document).ready(function () {
       effect: 'fadeIn'
     });
 });
+
+$(function () {
+  $('#like_form').submit(function (e) {
+    e.preventDefault();
+
+    var submit_button = $(this).find('input[type=submit]');
+    var action = $(this).attr('action');
+
+    submit_button.hide();
+
+    $.ajax({
+      type: 'POST',
+      url: action,
+      success: function () {
+        $('#like_count').html(($('#like_count').html() * 1) + 1);
+      }
+    });
+  });
+});

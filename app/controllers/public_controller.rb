@@ -48,7 +48,9 @@ class PublicController < ApplicationController
       Video.increment_counter(:like_count, video.id)
     end
 
-    redirect_to clip_path(video[:clip_id])
+    response.headers['X-Cant-Be-Arsed'] = 'To-Stop-You-Voting-Multiple-Times'
+
+    head 200
   end
 
   protected

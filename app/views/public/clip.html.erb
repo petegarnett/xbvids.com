@@ -46,10 +46,10 @@
 
     <div class="like-box">
       <span>
-        Likes: <%= @video.like_count %>
+        Likes: <span id="like_count"><%= @video.like_count %></span>
       </span>
 
-      <form action="<%= vote_path(@video.clip_id) %>" method="post">
+      <form id="like_form" action="<%= vote_path(@video.clip_id) %>" method="post">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
         <input type="submit" value="Like!" />
       </form>
