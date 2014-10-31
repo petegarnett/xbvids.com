@@ -28,11 +28,11 @@ class TranscodeClipWorker
       :output_key_prefix => output_file_path,
       :outputs => [
         {
-          :key       => '240p',
+          :key       => '240p.mp4',
           :preset_id => preset_id_240p
         },
         {
-          :key       => '480p',
+          :key       => '480p.mp4',
           :preset_id => preset_id_480p
         }
       ]
