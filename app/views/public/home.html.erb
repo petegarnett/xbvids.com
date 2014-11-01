@@ -2,8 +2,12 @@
   <h1>The ultimate way to share your Xbox One game clips</h1>
 
   <ul>
-    <li><a class="button primary" href="<%= new_user_registration_path %>">Sign up free</a></li>
-    <li><a class="button secondary" href="<%= new_user_session_path %>">Log in</a></li>
+    <% if user_signed_in? %>
+      <li><a class="button secondary" href="<%= dashboard_path %>">Go to your dashboard</a></li>
+    <% else %>
+      <li><a class="button primary" href="<%= new_user_registration_path %>">Sign up free</a></li>
+      <li><a class="button secondary" href="<%= new_user_session_path %>">Log in</a></li>
+    <% end %>
   </ul>
 
   <ul>
