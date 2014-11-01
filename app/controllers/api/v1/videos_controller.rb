@@ -31,7 +31,7 @@ module Api
 
           return Video
             .uploaded
-            .includes(:user)
+            .includes(:user, :game)
             .paginate(:page => 1, :per_page => count)
             .where('id > ?', cursor)
             .order('recorded_at DESC')
