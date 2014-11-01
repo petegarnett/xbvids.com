@@ -1,0 +1,41 @@
+<header class="hero">
+  <h1>Popular Videos</h1>
+</header>
+
+<h2>Most Viewed</h2>
+
+<ul class="videos-grid">
+  <% @most_viewed.each do |video| %>
+    <li>
+      <a href="<%= clip_path(video.clip_id) %>">
+        <% if video.is_uploaded? %>
+          <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
+          <span class="stat"><%= video.view_count %> views</span>
+        <% else %>
+          <p>
+            Still uploading.
+          </p>
+        <% end %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Most Likes</h2>
+
+<ul class="videos-grid">
+  <% @most_likes.each do |video| %>
+    <li>
+      <a href="<%= clip_path(video.clip_id) %>">
+        <% if video.is_uploaded? %>
+          <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
+          <span class="stat"><%= video.like_count %> likes</span>
+        <% else %>
+          <p>
+            Still uploading.
+          </p>
+        <% end %>
+      </a>
+    </li>
+  <% end %>
+</ul>

@@ -28,7 +28,9 @@ h1 {
 
 h2 {
   font-size: 1.5em;
+  line-height: 2em;
   margin-bottom: 0.2em;
+  clear: both;
 }
 
 a {
@@ -162,8 +164,16 @@ header.hero {
   padding: 0;
 
   li {
+    position: relative;
+
     a {
       display: inline-block;
+    }
+
+    span.stat {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
     }
 
     margin: 0;

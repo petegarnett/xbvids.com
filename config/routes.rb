@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   post 'clip/:clip_id/vote' => 'public#vote', as: 'vote'
 
+  get 'popular' => 'public#popular', as: 'popular'
+
   get 'home' => 'public#home', as: 'home'
   get 'users' => 'public#users', as: 'users'
   get 'games' => 'public#games', as: 'games'

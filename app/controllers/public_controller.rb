@@ -51,6 +51,11 @@ class PublicController < ApplicationController
     end
   end
 
+  def popular
+    @most_viewed = Video.uploaded.order('view_count DESC').limit(10)
+    @most_likes  = Video.uploaded.order('like_count DESC').limit(10)
+  end
+
   def vote
     video = Video.find_by_clip_id(params[:clip_id])
 
