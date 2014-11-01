@@ -5,7 +5,7 @@ class Video < ActiveRecord::Base
   scope :uploaded, -> { where(:is_thumbnail_uploaded => true, :is_clip_uploaded => true) }
 
   def cdn_clip_url
-    return "https://d28pv9m582c384.cloudfront.net/%s.mp4" % [clip_id]
+    return "https://d16qbvaw6mbnw7.cloudfront.net/%s/720p.mp4" % [clip_id]
   end
 
   def cdn_small_clip_url
