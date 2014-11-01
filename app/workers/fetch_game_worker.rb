@@ -9,6 +9,8 @@ class FetchGameWorker
 
     xb_game = xb.game game.title_id
 
+    logger.info "Game %s: Raw game data = %s" % [game_id, xb_game]
+
     data = {
       :xgid => xb_game['ID'],
       :description => xb_game['Description'],

@@ -13,12 +13,12 @@ class UploadClipWorker
       video_file_name = '%s.mp4' % [video.clip_id]
       video_location = '/tmp/%s' % [video_file_name]
 
-      puts "Downloading %s to %s" % [video.clip_id, video_location]
+      logger.info "Downloading %s to %s" % [video.clip_id, video_location]
       open(video_location, 'wb') do |file|
         file << open(video.source_uri).read
       end
 
-      puts "Uploading %s" % [video_location]
+      logger.info "Uploading %s" % [video_location]
 
       s3.buckets[bucket_name].objects[video_file_name].write(:file => video_location, :acl => :public_read)
 

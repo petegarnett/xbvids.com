@@ -9,17 +9,24 @@ class FetchClipsWorker
 
     gamertag = user.gamertag
 
+    logger.info "User %s: Fetching clips for %s" % [user.id, user.gamertag]
+
     if gamertag
       xuid = user.xuid
 
       if not xuid
         xuid = xb.xuid gamertag
         user.update_attributes(:xuid => xuid)
+
+        logger.info "User %s: Discovered xuid = %s" % [user.id, xuid]
       end
 
       clips = xb.gameclips xuid
 
       clips.each do |clip|
+
+        logger.info "User %s: Clip raw data - %s" % [user.id, clip]
+
         clip_id = clip['gameClipId']
         recorded_at = clip['dateRecorded']
         clip_type = clip['type']
@@ -38,6 +45,8 @@ class FetchClipsWorker
               :title_id => game_title_id,
               :name     => title
             })
+
+            logger.info "User %s: Found new game with title id = %s" % [user.id, game_title_id]
 
             FetchGameWorker.perform_async(game.id)
           end
