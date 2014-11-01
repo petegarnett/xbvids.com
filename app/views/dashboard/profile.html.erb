@@ -1,10 +1,22 @@
-<h1>Settings</h1>
+<header class="hero">
+  <h1>Profile</h1>
+</header>
+
+<h2>About You</h2>
 
 <p>
-  <strong>Note:</strong> Videos are not downloaded in real-time, there will be a delay.  Also, make sure that your privacy settings
-  allow anyone to see the videos you create.
+  You have been a member since <%= current_user.created_at.strftime("%d %b %G") %>, have uploaded <%= current_user.videos.count %> clips,
+  have accumulated <%= current_user.videos.sum(:view_count) %> views and <%= current_user.videos.sum(:like_count) %> likes.
 </p>
-
+<br />
+<p>
+  <% if current_user.is_pro? %>
+    You are a
+  <% else %>
+    You are not a
+  <% end %>
+  <span class="badge pro">pro</span> user.
+</p>
 
 <form class="central" action="<%= profile_post_path %>" method="post" onsubmit="return confirm('Are you sure this is your gamertag?')">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
