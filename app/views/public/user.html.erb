@@ -8,6 +8,12 @@
     <% end %>
     <%= @user.gamertag %>'s latest game clips.
   <% end %>
+
+  <header class="hero">
+    <h1><%= @user.gamertag %></h1>
+  </header>
+
+
   <% if @videos.count > 0 %>
     <ul class="videos-grid">
       <% @videos.each do |video| %>
