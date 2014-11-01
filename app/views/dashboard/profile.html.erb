@@ -5,6 +5,7 @@
   allow anyone to see the videos you create.
 </p>
 
+
 <form action="<%= profile_post_path %>" method="post" onsubmit="return confirm('Are you sure this is your gamertag?')">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 

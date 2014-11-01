@@ -24,6 +24,13 @@ class PublicController < ApplicationController
   end
 
   def home
+    if user_signed_in?
+      if current_user.gamertag.nil?
+        redirect_to profile_path
+        return
+      end
+    end
+
     @no_title = true
     @videos = Video.uploaded.order('recorded_at DESC')
   end
