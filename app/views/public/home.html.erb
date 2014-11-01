@@ -19,7 +19,7 @@
       <li>
         <a href="<%= clip_path(video.clip_id) %>">
           <% if video.is_uploaded? %>
-            <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 150) %>" src="<%= ImageHelper.transparent_gif %>" />
+            <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
           <% else %>
             <p>
               Still uploading...
