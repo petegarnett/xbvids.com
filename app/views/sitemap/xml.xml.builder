@@ -3,7 +3,7 @@ xml.urlset(
   :xmlns => 'http://www.sitemaps.org/schemas/sitemap/0.9'
 ) do
 
-  ['games', 'users'].each do |route|
+  ['games', 'users', 'popular'].each do |route|
     xml.url do
       xml.loc root_url() + route
       xml.lastmod DateTime.now.strftime("%Y-%m-%dT%H:%M:%S+00:00")
