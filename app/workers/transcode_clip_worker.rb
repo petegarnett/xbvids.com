@@ -14,6 +14,12 @@ class TranscodeClipWorker
 
     preset_id_240p = '1351620000001-000061'
     preset_id_480p = '1351620000001-000020'
+    preset_id_720p = '1351620000001-000010'
+
+    watermark_small_spec = {
+      :preset_watermark_id => 'TopRight',
+      :input_key           => 'watermark-small.png'
+    }
 
     job_spec = {
       :pipeline_id => pipeline_id,
@@ -28,12 +34,18 @@ class TranscodeClipWorker
       :output_key_prefix => output_file_path,
       :outputs => [
         {
-          :key       => '240p.mp4',
-          :preset_id => preset_id_240p
+          :key        => '240p.mp4',
+          :preset_id  => preset_id_240p
         },
         {
-          :key       => '480p.mp4',
-          :preset_id => preset_id_480p
+          :key        => '480p.mp4',
+          :preset_id  => preset_id_480p,
+          :watermarks => [watermark_small_spec]
+        },
+        {
+          :key        => '720p.mp4',
+          :preset_id  => preset_id_720p,
+          :watermarks => [watermark_small_spec]
         }
       ]
     }
