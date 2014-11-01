@@ -61,6 +61,11 @@ img.responsive {
   height: auto;
 }
 
+html.turbolinks-progress-bar::before {
+  background-color: $purple !important;
+  height: 1px !important;
+}
+
 .header {
   padding: 10px;
   position: fixed;
