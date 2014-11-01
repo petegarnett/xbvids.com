@@ -26,6 +26,7 @@ json.clip do
 end
 
 json.game do
+  json.id (video.game) ? video.game.id : nil
   json.title video.title
   json.image_box (video.game) ? video.game.image_box : nil
 end
