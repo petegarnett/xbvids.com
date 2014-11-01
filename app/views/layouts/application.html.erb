@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>
-    <%= content_for?(:title) ? yield(:title) : "Xbox One Game Clips" %>
-  </title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="google-site-verification" content="Q-Qc2tAYKgTbDKG4K7BK941RVcjxct0u7GinSzHSSHI" />
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-
-  <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
+  <%= render 'global/head' %>
   <%= yield(:additional_head) %>
 </head>
 <body class="fixed-header">
