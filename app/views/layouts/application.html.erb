@@ -11,17 +11,24 @@
 
 <% unless @no_title %>
   <div class="header">
-    <%= yield(:title_bar) %>
-    <% if user_signed_in? %>
-      You are logged in as <%= current_user.email %>.
-      <%= link_to "Log out", destroy_user_session_path, :method => :delete, :data => { :confirm => 'Are you sure you want to log out?' } %>.
-      <%= link_to "Dashboard", dashboard_path %>
-      <% if current_user.gamertag %>
-        <%= link_to "Your public profile", user_path(current_user.gamertag) %>.
+    <span class="pull-left">
+      <%= yield(:title_bar) %>
+    </span>
+
+    <span class="pull-right">
+      <% if user_signed_in? %>
+        You are logged in as <%= current_user.email %>:
+        <%= link_to "Your Dashboard", dashboard_path %>,
+        <% if current_user.gamertag %>
+          <%= link_to "View Your Public Profile", user_path(current_user.gamertag) %>,
+        <% end %>
+        <%= link_to "Edit Your Settings", profile_path %>, or
+        <%= link_to "Log out", destroy_user_session_path, :method => :delete, :data => { :confirm => 'Are you sure you want to log out?' } %>
+      <% else %>
+        <%= link_to "Need your own account?", new_user_registration_path %> Or
+        <%= link_to "Log in", new_user_session_path %>.
       <% end %>
-    <% else %>
-      Want a page like this? <%= link_to "Sign up", new_user_registration_path %>.
-    <% end %>
+    </span>
   </div>
 <% end %>
 

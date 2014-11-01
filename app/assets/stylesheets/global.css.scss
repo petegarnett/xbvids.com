@@ -65,6 +65,15 @@ img.responsive {
   background: #333333;
   color: #bdbec1;
   width: 100%;
+  box-sizing: border-box;
+
+  .pull-left {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+  }
 }
 
 body.fixed-header {
