@@ -3,8 +3,23 @@
     <%= @game.name %>'s latest Xbox One game clips.
   <% end %>
   <% content_for :title_bar do %>
-  
+
   <% end %>
+
+  <style media="screen">
+    body::after {
+      content: "";
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+      background: url(<%= ImageHelper.resized(@game.image_hero_super, 1280) %>) no-repeat top center;
+      background-size: 100%;
+    }
+  </style>
 
   <header class="hero">
     <h1><%= @game.name %></h1>
