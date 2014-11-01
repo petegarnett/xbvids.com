@@ -22,6 +22,8 @@ json.clip do
   json.why video.clip_type
   json.caption video.caption
 
+  json.url clip_url(video.clip_id)
+
   json.is_uploaded video.is_uploaded?
 end
 
@@ -29,11 +31,13 @@ json.game do
   json.id (video.game) ? video.game.id : nil
   json.title video.title
   json.image_box (video.game) ? video.game.image_box : nil
+  json.url (video.game and video.game.xgid) ? game_url(video.game.xgid) : nil
 end
 
 json.user do
   json.id video.user.id
   json.gamertag video.user.gamertag
+  json.url user_url(video.user.gamertag)
 end
 
 json.popularity do
