@@ -164,6 +164,16 @@ header.hero {
   padding: 0 10px 10px 10px;
 }
 
+form.central {
+  width: 90%;
+  max-width: 600px;
+  background: lighten($dark-grey, 10%);
+  padding: 20px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+
 .videos-grid {
   list-style: none;
   margin: 0;

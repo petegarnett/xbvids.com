@@ -6,11 +6,13 @@
 </p>
 
 
-<form action="<%= profile_post_path %>" method="post" onsubmit="return confirm('Are you sure this is your gamertag?')">
+<form class="central" action="<%= profile_post_path %>" method="post" onsubmit="return confirm('Are you sure this is your gamertag?')">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 
-  <label for="gamertag">Xbox Live Gamertag</label>
-  <input type="text" name="gamertag" value="<%= current_user.gamertag %>" />
+  <div>
+    <label for="gamertag">Xbox Live Gamertag</label>
+    <input type="text" name="gamertag" value="<%= current_user.gamertag %>" />
+  </div>
 
   <input type="submit" value="Save" />
 </form>
