@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get 'feed/twitter', defaults: { format: :xml }, as: 'twitter_feed'
 
+  get 'faq' => 'public#faq', as: 'faq'
+
   post 'sns/consume' => 'sns#consume'
 
   devise_for :users

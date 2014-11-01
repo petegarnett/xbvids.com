@@ -56,6 +56,9 @@ class PublicController < ApplicationController
     head 200
   end
 
+  def faq
+  end
+
   protected
     def allow_iframe_requests
       response.headers.delete('X-Frame-Options')

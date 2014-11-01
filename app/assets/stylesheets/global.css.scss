@@ -318,3 +318,19 @@ body.player {
     }
   }
 }
+
+dl.faq {
+  width: 1000px;
+  margin: auto;
+
+  dt {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+
+  dd {
+    margin-bottom: 30px;
+    line-height: 1.2em;
+  }
+}
