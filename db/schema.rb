@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101000323) do
+ActiveRecord::Schema.define(version: 20141101174315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20141101000323) do
     t.string   "image_poster"
   end
 
+  add_index "games", ["xgid"], name: "index_games_on_xgid", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -49,7 +51,9 @@ ActiveRecord::Schema.define(version: 20141101000323) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["gamertag"], name: "index_users_on_gamertag", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["xuid"], name: "index_users_on_xuid", using: :btree
 
   create_table "videos", force: true do |t|
     t.string   "clip_id"
@@ -67,7 +71,11 @@ ActiveRecord::Schema.define(version: 20141101000323) do
     t.integer  "like_count"
     t.string   "caption"
     t.boolean  "is_clip_transcoded",    default: false
-    t.integer  "view_count"
+    t.integer  "view_count",            default: 0
   end
+
+  add_index "videos", ["clip_id"], name: "index_videos_on_clip_id", unique: true, using: :btree
+  add_index "videos", ["game_id"], name: "index_videos_on_game_id", using: :btree
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
 
 end
