@@ -203,7 +203,7 @@ header.hero {
       width: 10%;
 
       @media (max-width: 1200px) {
-        width: 25%/2;
+        width: (25%/2);
       }
 
       @media (max-width: 900px) {
@@ -211,7 +211,7 @@ header.hero {
       }
 
       @media (max-width: 600px) {
-        width: 50%/2;
+        width: (50%/2);
       }
 
       @media (max-width: 400px) {
