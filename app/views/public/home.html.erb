@@ -1,3 +1,17 @@
+<header class="hero floating">
+  <h1>The ultimate way to share your Xbox One game clips</h1>
+
+  <ul>
+    <li><a class="button primary" href="<%= new_user_registration_path %>">Sign up free</a></li>
+    <li><a class="button secondary" href="<%= new_user_session_path %>">Log in</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="<%= games_path %>">Browse By Game</a></li>
+    <li><a href="<%= users_path %>">Browse By User</a></li>
+  </ul>
+</header>
+
 <% if @videos.count > 0 %>
   <ul class="videos-grid small">
     <% @videos.each do |video| %>

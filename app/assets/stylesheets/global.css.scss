@@ -4,6 +4,7 @@
 
 $dark-grey: #333;
 $light-grey: #bdbec1;
+$purple: #9757E1;
 
 body, html {
   margin: 0;
@@ -69,6 +70,63 @@ img.responsive {
 body.fixed-header {
   .content {
     padding-top: 42px;
+  }
+}
+
+header.hero {
+
+  padding: 3em 0;
+
+  h1 {
+    color: white;
+    font-size: 3em;
+    text-align: center;
+  }
+
+  ul {
+    text-align: center;
+    margin-top: 20px;
+
+    li {
+      margin: auto;
+      display: inline-block;
+      margin: 0px 10px;
+    }
+  }
+
+  a.button {
+    background: white;
+    color: black;
+    display: inline-block;
+
+    padding: 14px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 17px;
+
+    &:hover {
+      background-color: #eee;
+    }
+
+    &.primary {
+      background-color: $purple;
+      color: white;
+    }
+
+    &.secondary {
+      color: $purple;
+    }
+  }
+
+  &.floating {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+
+    background: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -176,7 +234,7 @@ body.fixed-header {
   top: -2px;
 
   &.pro {
-    background: #9757E1;
+    background: $purple;
     color: white;
   }
 }

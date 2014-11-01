@@ -24,6 +24,7 @@ class PublicController < ApplicationController
   end
 
   def home
+    @no_title = true
     @videos = Video.uploaded.order('recorded_at DESC')
   end
 
