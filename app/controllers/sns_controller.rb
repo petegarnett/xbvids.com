@@ -35,8 +35,7 @@ class SnsController < ApplicationController
       video = Video.find_by_clip_id video_clip_id
 
       if video
-        video.update_attributes(:is_clip_transcoded => true)
-
+        Video.increment(:transcoded_notification_count, video.id)
         head 200
       end
     end

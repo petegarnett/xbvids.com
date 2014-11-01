@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101174315) do
+ActiveRecord::Schema.define(version: 20141101202455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 20141101174315) do
     t.integer  "game_id"
     t.integer  "like_count"
     t.string   "caption"
-    t.boolean  "is_clip_transcoded",    default: false
-    t.integer  "view_count",            default: 0
+    t.integer  "view_count",                    default: 0
+    t.integer  "transcoded_notification_count", default: 0
   end
 
   add_index "videos", ["clip_id"], name: "index_videos_on_clip_id", unique: true, using: :btree

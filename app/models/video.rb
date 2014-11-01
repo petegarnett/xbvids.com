@@ -2,7 +2,7 @@ class Video < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
 
-  scope :uploaded, -> { where(:is_thumbnail_uploaded => true, :is_clip_uploaded => true) }
+  scope :uploaded, -> { where(:is_thumbnail_uploaded => true, :is_clip_uploaded => true, :transcoded_notification_count => 3) }
 
   def cdn_original_url
     return "https://d28pv9m582c384.cloudfront.net/%s.mp4" % [clip_id]
