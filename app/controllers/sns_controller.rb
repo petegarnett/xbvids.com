@@ -36,8 +36,9 @@ class SnsController < ApplicationController
 
       if video
         Video.increment_counter(:transcoded_notification_count, video.id)
-        head 200
       end
     end
+
+    head 200
   end
 end
