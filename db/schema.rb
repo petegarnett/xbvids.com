@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101202455) do
+ActiveRecord::Schema.define(version: 20141103100929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20141101202455) do
     t.boolean  "is_thumbnail_uploaded"
     t.boolean  "is_clip_uploaded"
     t.integer  "game_id"
-    t.integer  "like_count"
+    t.integer  "like_count",                    default: 0
     t.string   "caption"
     t.integer  "view_count",                    default: 0
     t.integer  "transcoded_notification_count", default: 0
