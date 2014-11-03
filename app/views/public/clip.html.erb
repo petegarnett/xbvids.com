@@ -66,24 +66,6 @@
 
   <div class="content">
     <div class="flowplayer">
-      <script>
-      flowplayer_ima.conf({
-          adsense: {
-              request: {
-                  adtest: "on"
-              }
-          },
-
-          ads: [{
-              time: 3,
-
-              request: {
-                  ad_type: "video"
-              }
-          }]
-      });
-      </script>
-
       <video autoplay controls poster="<%= @video.cdn_thumbnail_url %>">
         <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
       </video>
