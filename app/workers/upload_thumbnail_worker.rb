@@ -23,6 +23,6 @@ class UploadThumbnailWorker
 
     video.update_attributes(:is_thumbnail_uploaded => true)
 
-    StatHat::API.ez_post_count("xbvids - worker - new thumbnail upload", "nick@nicksays.co.uk", 1)
+    StatHat::API.ez_post_count("xbvids - worker - new thumbnail upload", "xbvids@nicksays.co.uk", 1)
   end
 end

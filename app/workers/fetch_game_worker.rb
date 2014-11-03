@@ -30,6 +30,6 @@ class FetchGameWorker
 
     game.update_attributes(data)
 
-    StatHat::API.ez_post_count("xbvids - worker - new game", "nick@nicksays.co.uk", 1)
+    StatHat::API.ez_post_count("xbvids - worker - new game", "xbvids@nicksays.co.uk", 1)
   end
 end

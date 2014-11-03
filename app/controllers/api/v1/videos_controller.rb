@@ -5,7 +5,7 @@ module Api
       before_action :authenticate_user!, :except => [:firehose]
 
       def firehose
-        StatHat::API.ez_post_count("xbvids - api - firehose", "nick@nicksays.co.uk", 1)
+        StatHat::API.ez_post_count("xbvids - api - firehose", "xbvids@nicksays.co.uk", 1)
 
         @videos = videos
         render 'videos'
