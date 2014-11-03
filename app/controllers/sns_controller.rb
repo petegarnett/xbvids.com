@@ -28,6 +28,8 @@ class SnsController < ApplicationController
 
     message = AWS::SNS::Message.new JSON.parse(request.raw_post)
 
+    logger.info request.raw_post
+
     if message.type == :SubscriptionConfirmation
       HTTParty.get message.subscribe_url
     elsif message.type == :Notification
