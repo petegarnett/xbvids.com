@@ -16,3 +16,23 @@
     ga('send', 'event', { eventCategory: 'registration', eventAction: 'account'});
   <% end %>
 </script>
+
+<% if user_signed_in? and current_user.sign_in_count == 1 and not session[:tracked_registration] %>
+  <% session[:tracked_registration] = true %>
+  <!-- Facebook Conversion Code for xbvids: New User Registrations -->
+  <script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+  var fbds = document.createElement('script');
+  fbds.async = true;
+  fbds.src = '//connect.facebook.net/en_US/fbds.js';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(fbds, s);
+  _fbq.loaded = true;
+  }
+  })();
+  window._fbq = window._fbq || [];
+  window._fbq.push(['track', '6018133231877', {'value':'0.01','currency':'GBP'}]);
+  </script>
+  <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6018133231877&amp;cd[value]=0.01&amp;cd[currency]=GBP&amp;noscript=1" /></noscript>
+<% end %>
