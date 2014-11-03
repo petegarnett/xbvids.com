@@ -11,4 +11,8 @@
     ga('set', '&uid', '<%= current_user.gamertag %>'); // Set the user ID using signed-in user_id.
   <% end %>
 
+  <% if user_signed_in? and current_user.sign_in_count == 1 and not session[:tracked_registration] %>
+    <% session[:tracked_registration] = true %>
+    ga('send', 'event', { eventCategory: 'registration', eventAction: 'account'});
+  <% end %>
 </script>
