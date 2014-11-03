@@ -22,6 +22,14 @@
     <meta name="twitter:player:stream" content="<%= @video.cdn_clip_url %>">
     <meta name="twitter:player:stream:content_type" content="video/mp4">
 
+    <meta name="title" content="<%= @video.title %> by <%= @video.user.gamertag %>" />
+    <meta name="description" content="A clip of <%= @video.user.gamertag %> playing <%= @video.title %>" />
+    <link rel="image_src" href="<%= @video.cdn_thumbnail_url %>" />
+    <link rel="video_src" href="<%= @video.cdn_clip_url %>"/>
+    <meta name="video_height" content="720" />
+    <meta name="video_width" content="1280" />
+    <meta name="video_type" content="video/mp4" />
+
     <script src="//s0.2mdn.net/instream/html5/ima3.js"></script>
   <% end %>
 
