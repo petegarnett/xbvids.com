@@ -10,7 +10,7 @@
       <a href="<%= clip_path(video.clip_id) %>">
         <% if video.is_uploaded? %>
           <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
-          <span class="stat"><%= video.view_count %> views</span>
+          <span class="stat"><%= pluralize video.view_count, 'view' %></span>
         <% else %>
           <p>
             Still uploading.
@@ -29,7 +29,7 @@
       <a href="<%= clip_path(video.clip_id) %>">
         <% if video.is_uploaded? %>
           <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
-          <span class="stat"><%= video.like_count %> likes</span>
+          <span class="stat"><%= pluralize video.like_count, 'like' %></span>
         <% else %>
           <p>
             Still uploading.

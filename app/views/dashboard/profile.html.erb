@@ -6,7 +6,7 @@
 
 <p>
   You have been a member since <%= current_user.created_at.strftime("%d %b %G") %>, have uploaded <%= current_user.videos.count %> clips,
-  have accumulated <%= current_user.videos.sum(:view_count) %> views and <%= current_user.videos.sum(:like_count) %> likes.
+  have accumulated <%= pluralize current_user.videos.sum(:view_count), 'view' %> and <%= pluralize current_user.videos.sum(:like_count), 'like' %>.
 </p>
 <br />
 <p>

@@ -56,11 +56,11 @@
 
     <div class="like-box">
       <span>
-        Views: <%= @video.view_count + 1 %>
+        <%= pluralize @video.view_count + 1, 'view' %>
       </span>
 
       <span>
-        Likes: <span id="like_count"><%= @video.like_count %></span>
+        <span id="like_count"><%= @video.like_count %></span> <%= "like".pluralize(@video.like_count) %>
       </span>
 
       <form id="like_form" action="<%= vote_path(@video.clip_id) %>" method="post">
