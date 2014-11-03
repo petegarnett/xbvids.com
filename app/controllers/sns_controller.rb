@@ -37,6 +37,8 @@ class SnsController < ApplicationController
       if video
         Video.increment_counter(:transcoded_notification_count, video.id)
       end
+
+      StatHat::API.ez_post_count("xbvids - sns notifications", "nick@nicksays.co.uk", 1)
     end
 
     head 200

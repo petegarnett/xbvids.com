@@ -22,5 +22,7 @@ class UploadThumbnailWorker
     s3.buckets[bucket_name].objects[thumbnail_file_name].write(:file => thumbnail_location, :acl => :public_read)
 
     video.update_attributes(:is_thumbnail_uploaded => true)
+
+    StatHat::API.ez_post_count("xbvids - worker - new thumbnail upload", "nick@nicksays.co.uk", 1)
   end
 end

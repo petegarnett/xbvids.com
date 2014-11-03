@@ -19,6 +19,8 @@ class FetchClipsWorker
         user.update_attributes(:xuid => xuid)
 
         logger.info "User %s: Discovered xuid = %s" % [user.id, xuid]
+
+        StatHat::API.ez_post_count("xbvids - worker - new gamertag", "nick@nicksays.co.uk", 1)
       end
 
       clips = xb.gameclips xuid
@@ -66,6 +68,8 @@ class FetchClipsWorker
 
           UploadClipWorker.perform_async(video.clip_id)
           UploadThumbnailWorker.perform_async(video.clip_id)
+
+          StatHat::API.ez_post_count("xbvids - worker - new video", "nick@nicksays.co.uk", 1)
         end
       end
     end

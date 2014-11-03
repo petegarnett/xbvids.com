@@ -48,3 +48,6 @@ gem 'will_paginate'
 
 gem 'newrelic_rpm'
 gem 'jquery-turbolinks'
+
+
+gem 'stathat'

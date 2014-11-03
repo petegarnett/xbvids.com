@@ -51,5 +51,7 @@ class TranscodeClipWorker
     }
 
     et.create_job job_spec
+
+    StatHat::API.ez_post_count("xbvids - worker - transcode job", "nick@nicksays.co.uk", 1)
   end
 end
