@@ -29,6 +29,7 @@ videos = [
     user_id: 1,
     is_thumbnail_uploaded: true,
     is_clip_uploaded: true,
+    transcoded_notification_count: 1,
     game_id: 1
   }
 ]
@@ -49,6 +50,7 @@ games = [
 ]
 
 puts "Users"
+User.delete_all
 users.each do |data|
   record = User.find_by_id(data[:id])
 
@@ -62,6 +64,7 @@ users.each do |data|
 end
 
 puts "Videos"
+Video.delete_all
 videos.each do |data|
   record = Video.find_by_id(data[:id])
 
