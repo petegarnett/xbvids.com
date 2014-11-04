@@ -2,12 +2,40 @@
   <% content_for :title do %>
     <%= @video.title %> by <%= @video.user.gamertag %>
   <% end %>
+
   <% content_for :title_bar do %>
-    <%= @video.title %> by <%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %>
+
+    <%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %>
+
     <% if @video.user.is_pro? %>
       <span class="badge pro">pro</span>
     <% end %>
-    .
+    playing
+
+    <% if @video.game %>
+      <%= link_to @video.title, game_path(@video.game.xgid) %>
+    <% else %>
+      <%= @video.title %>
+    <% end %>
+
+    <span data-livestamp="<%= @video.recorded_at.to_time.to_i %>">on <%= @video.recorded_at %></span>
+
+    <div class="like-box">
+      <span>
+        <%= pluralize @video.view_count + 1, 'view' %>
+      </span>
+
+      <span>
+        <span id="like_count"><%= @video.like_count %></span> <%= "like".pluralize(@video.like_count) %>
+      </span>
+
+      <form id="like_form" action="<%= vote_path(@video.clip_id) %>" method="post">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
+        <input type="submit" value="Like!" />
+      </form>
+    </div>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="xbclips">Tweet</a>
   <% end %>
 
   <% content_for :additional_head do %>
@@ -37,58 +65,19 @@
     <script src="//platform.twitter.com/widgets.js"></script>
   <% end %>
 
-  <div class="header">
-    <h1>
-      <%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %>
-      <% if @video.user.is_pro? %>
-        <span class="badge pro">pro</span>
-      <% end %>
-      playing
-
-      <% if @video.game %>
-        <%= link_to @video.title, game_path(@video.game.xgid) %>
-      <% else %>
-        <%= @video.title %>
-      <% end %>
-
-      <span data-livestamp="<%= @video.recorded_at.to_time.to_i %>">on <%= @video.recorded_at %></span>
-    </h1>
-
-    <div class="like-box">
-      <span>
-        <%= pluralize @video.view_count + 1, 'view' %>
-      </span>
-
-      <span>
-        <span id="like_count"><%= @video.like_count %></span> <%= "like".pluralize(@video.like_count) %>
-      </span>
-
-      <form id="like_form" action="<%= vote_path(@video.clip_id) %>" method="post">
-        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
-        <input type="submit" value="Like!" />
-      </form>
-    </div>
-
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="xbclips">Tweet</a>
+  <div class="flowplayer">
+    <video autoplay controls poster="<%= @video.cdn_thumbnail_url %>">
+      <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
+    </video>
   </div>
 
-  <div class="content">
-    <div class="flowplayer">
-      <video autoplay controls poster="<%= @video.cdn_thumbnail_url %>">
-        <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
-      </video>
-    </div>
-  </div>
-
-  <div class="footer">
+  <!-- <div class="footer">
     <% if @video.game %>
-      <!--
       <a href="<%= game_path(@video.game.xgid) %>">
         <img class="box-art" src="<%= @video.game.image_box %>" />
       </a>
-      -->
     <% end %>
-  </div>
+  </div> -->
 
 <% elsif @video and not @video.is_uploaded? %>
   <p>Clip has not been uploaded yet!</p>

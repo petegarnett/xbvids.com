@@ -10,11 +10,10 @@ class PublicController < ApplicationController
   end
 
   def clip
+    @is_player = true
     @video = Video.find_by_clip_id(params[:clip_id])
 
     Video.increment_counter(:view_count, @video.id)
-
-    render :layout => 'player'
   end
 
   def clip_twitter_container
