@@ -61,6 +61,13 @@ img.responsive {
   height: auto;
 }
 
+img.lazy:not([src=""]) {
+  min-width: 34px;
+  min-height: 34px;
+  background: url(asset_path("loading.gif")) center center no-repeat;
+  background-size: 34px;
+}
+
 html.turbolinks-progress-bar::before {
   background-color: $purple !important;
   height: 1px !important;
