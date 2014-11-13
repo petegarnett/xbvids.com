@@ -45,6 +45,7 @@ gem 'unicorn'
 gem 'sidekiq'
 gem "hirefire-resource"
 gem 'will_paginate'
+gem 'dalli'
 
 gem 'newrelic_rpm'
 gem 'jquery-turbolinks'
