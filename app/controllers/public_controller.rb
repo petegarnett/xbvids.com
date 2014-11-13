@@ -32,7 +32,6 @@ class PublicController < ApplicationController
     end
 
     @no_title = true
-    @videos = Video.uploaded.order('recorded_at DESC')
   end
 
   def users

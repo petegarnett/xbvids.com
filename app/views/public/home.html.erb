@@ -18,20 +18,23 @@
   </ul>
 </header>
 
-<% if @videos.count > 0 %>
-  <ul class="videos-grid small">
-    <% @videos.each do |video| %>
-      <li>
-        <a href="<%= clip_path(video.clip_id) %>">
-          <% if video.is_uploaded? %>
-            <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
-          <% else %>
-            <p>
-              Still uploading...
-            </p>
-          <% end %>
-        </a>
-      </li>
-    <% end %>
-  </ul>
+<% cache("home_page_videos_#{Video.uploaded.count}") do %>
+  <% @videos = Video.uploaded.order('recorded_at DESC') %>
+  <% if @videos.count > 0 %>
+    <ul class="videos-grid small">
+      <% @videos.each do |video| %>
+        <li>
+          <a href="<%= clip_path(video.clip_id) %>">
+            <% if video.is_uploaded? %>
+              <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
+            <% else %>
+              <p>
+                Still uploading...
+              </p>
+            <% end %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>
