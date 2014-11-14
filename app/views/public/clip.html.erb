@@ -77,6 +77,41 @@
       <video autoplay controls poster="<%= @video.cdn_thumbnail_url %>">
         <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
       </video>
+
+      <div class="overlay" style="display: none">
+        <p class="title">
+          You've been watching
+          <%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %>
+          <% if @video.user.is_pro? %>
+            <span class="badge pro">pro</span>
+          <% end %>
+          playing
+
+          <% if @video.game %>
+            <%= link_to @video.title, game_path(@video.game.xgid) %>
+          <% else %>
+            <%= @video.title %>
+          <% end %>
+        </p>
+
+        <p class="title">
+          How about these videos next?
+        </p>
+
+        <% if @random_clips.count > 0 %>
+          <ul class="videos-grid clearfix">
+            <% @random_clips.each do |video| %>
+              <li>
+                <a href="<%= clip_path(video.clip_id) %>">
+                  <% if video.is_uploaded? %>
+                    <img class="responsive" src="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
+                  <% end %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
   </div>
 

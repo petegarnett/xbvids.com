@@ -3,7 +3,7 @@
    Flowplayer v5.5.0 (Tuesday, 26. August 2014 10:09AM) | flowplayer.org/license
 
 */
-!function($) { 
+!function($) {
 
 /*
    jQuery.browser for 1.9+
@@ -33,12 +33,6 @@
    }
 
 }(jQuery);
-// auto-install (any video tag with parent .flowplayer)
-$(function() {
-   if (typeof $.fn.flowplayer == 'function') {
-      $("video").parent(".flowplayer").flowplayer();
-   }
-});
 
 var instances = [],
    extensions = [],

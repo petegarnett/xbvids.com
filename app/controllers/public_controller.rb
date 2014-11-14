@@ -14,6 +14,8 @@ class PublicController < ApplicationController
 
     Video.increment_counter(:view_count, @video.id)
 
+    @random_clips= Video.uploaded.order("random()").limit(3)
+
     render :layout => 'player'
   end
 

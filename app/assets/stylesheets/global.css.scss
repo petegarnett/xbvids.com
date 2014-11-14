@@ -6,6 +6,14 @@ $dark-grey: #333;
 $light-grey: #bdbec1;
 $purple: #9757E1;
 
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -350,6 +358,48 @@ body.player {
     bottom: 0;
 
     padding: 0;
+
+    .flowplayer {
+      position: relative;
+
+      .overlay {
+        position: absolute;
+        z-index: 2;
+        background: rgba(0.0, 0.0, 0.0, 0.25);
+
+        top: 25%;
+        left: 0;
+        right: 0;
+        bottom: 25%;
+
+        a {
+          text-decoration: underline;
+        }
+
+        .title {
+          text-align: center;
+          padding: 10px;
+        }
+
+        .videos-grid {
+          @include clearfix;
+
+          position: absolute;
+          bottom: 5%;
+          left: 0;
+          right: 0;
+
+          li {
+            width: 33%;
+            text-align: center;
+          }
+
+          a:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
 
     video {
       width: 100%;

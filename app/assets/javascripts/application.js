@@ -60,4 +60,16 @@ $(function () {
   });
 });
 
+$(function() {
+   if (typeof $.fn.flowplayer == 'function') {
+      $("video").parent(".flowplayer").flowplayer({
+         cuepoints: [-0.1]
+      }).bind("cuepoint", function(e, api, cuepoint) {
+        $('.flowplayer .overlay').show();
+      });
+   }
+});
+
+
+
 Turbolinks.enableProgressBar();
