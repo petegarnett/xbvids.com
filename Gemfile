@@ -41,7 +41,7 @@ gem 'httparty'
 gem 'devise'
 gem 'aws-sdk'
 gem 'rails_12factor', group: :production
-gem 'unicorn'
+gem 'passenger'
 gem 'sidekiq'
 gem "hirefire-resource"
 gem 'will_paginate'
