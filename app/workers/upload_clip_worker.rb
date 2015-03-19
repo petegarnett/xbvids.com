@@ -24,8 +24,6 @@ class UploadClipWorker
 
       video.update_attributes(:is_clip_uploaded => true)
 
-      TranscodeClipWorker.perform_async(video.clip_id)
-
       StatHat::API.ez_post_count("xbvids - worker - new clip upload", "xbvids@nicksays.co.uk", 1)
     end
   end

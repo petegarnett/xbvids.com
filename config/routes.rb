@@ -24,8 +24,6 @@ Rails.application.routes.draw do
 
   get 'faq' => 'public#faq', as: 'faq'
 
-  post 'sns/consume' => 'sns#consume'
-
   devise_for :users
 
   namespace :api do

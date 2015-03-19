@@ -2,21 +2,24 @@ class Video < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
 
-  scope :uploaded, -> { where(:is_thumbnail_uploaded => true, :is_clip_uploaded => true, :transcoded_notification_count => 1) }
+  scope :uploaded, -> { where(:is_thumbnail_uploaded => true, :is_clip_uploaded => true) }
 
   def cdn_original_url
     return "https://d28pv9m582c384.cloudfront.net/%s.mp4" % [clip_id]
   end
 
   def cdn_clip_url
+    return cdn_original_url if transcoded_notification_count == 0
     return "https://d16qbvaw6mbnw7.cloudfront.net/%s/720p.mp4" % [clip_id]
   end
 
   def cdn_small_clip_url
+    return cdn_original_url if transcoded_notification_count == 0
     return "https://d16qbvaw6mbnw7.cloudfront.net/%s/240p.mp4" % [clip_id]
   end
 
   def cdn_medium_clip_url
+    return cdn_original_url if transcoded_notification_count == 0
     return "https://d16qbvaw6mbnw7.cloudfront.net/%s/480p.mp4" % [clip_id]
   end
 
