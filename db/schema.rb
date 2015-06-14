@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103100929) do
+ActiveRecord::Schema.define(version: 20150614111625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,27 @@ ActiveRecord::Schema.define(version: 20141103100929) do
     t.string   "title_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_poster"
   end
 
   add_index "games", ["xgid"], name: "index_games_on_xgid", using: :btree
+
+  create_table "screenshots", force: true do |t|
+    t.integer  "game_id"
+    t.integer  "user_id"
+    t.string   "xuid"
+    t.text     "url"
+    t.integer  "width"
+    t.integer  "height"
+    t.text     "thumbnail_small"
+    t.text     "thumbnail_large"
+    t.datetime "date_taken"
+    t.string   "screenshot_type"
+    t.boolean  "saved_by_user"
+    t.integer  "achievement_id"
+    t.integer  "greatest_moment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -65,8 +82,8 @@ ActiveRecord::Schema.define(version: 20141103100929) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "is_thumbnail_uploaded"
-    t.boolean  "is_clip_uploaded"
+    t.boolean  "is_thumbnail_uploaded",         default: false
+    t.boolean  "is_clip_uploaded",              default: false
     t.integer  "game_id"
     t.integer  "like_count",                    default: 0
     t.string   "caption"

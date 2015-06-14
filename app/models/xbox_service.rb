@@ -21,4 +21,8 @@ class XboxService
   def game(title_id)
     self.class.get('/v2/game-details-hex/%x' % [title_id], @options)["Items"][0]
   end
+
+  def screenshots(xuid)
+    self.class.get('/v2/%d/screenshots' % [xuid], @options)
+  end
 end

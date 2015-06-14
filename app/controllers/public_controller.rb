@@ -9,6 +9,19 @@ class PublicController < ApplicationController
     end
   end
 
+  def user_screenshots_list
+    @user = User.find_by_gamertag(params[:user_id])
+
+    if @user
+      @screenshots = @user.screenshots.order('date_taken DESC')
+    end
+  end
+
+  def user_screenshots_view
+    @user = User.find_by_gamertag(params[:user_id])
+    @screenshot = @user.screenshots.where(:xuid => params[:screenshot_id]).first
+  end
+
   def clip
     @video = Video.find_by_clip_id(params[:clip_id])
 

@@ -1,0 +1,13 @@
+<% content_for :title do %>
+  Screenshot from <%= @screenshot.game.name %> by <%= @screenshot.user.gamertag %>
+<% end %>
+<% content_for :title_bar do %>
+  Screenshot from <%= @screenshot.game.name %> by <%= link_to @screenshot.user.gamertag, user_path(@screenshot.user.gamertag) %>
+
+  <% if @screenshot.user.is_pro? %>
+    <span class="badge pro">pro</span>
+  <% end %>
+  .
+<% end %>
+
+<img src="<%= @screenshot.url %>" style="width: 100%; height: auto;" alt="" />

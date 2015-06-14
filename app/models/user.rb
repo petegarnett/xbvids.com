@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :videos
+  has_many :screenshots
 
   def is_pro?
     return true
