@@ -21,6 +21,19 @@
   <body>
 
     <div class="container-fluid">
+      <% if user_signed_in? %>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-collapse">
+              <p class="navbar-text navbar-right">
+                Signed in as <%= link_to current_user.gamertag, user_path(current_user.gamertag) %>.
+                <%= link_to "Log out?", destroy_user_session_path, :method => :delete, :data => { :confirm => 'Are you sure you want to log out?' } %>
+              </p>
+            </div>
+          </div>
+        </nav>
+      <% end %>
+
       <div class="row">
         <div class="col-md-2">
           <h1>xbvids</h1>
@@ -28,6 +41,9 @@
             <li><a href="<%= root_path %>">Home</a></li>
             <li><a href="<%= games_path %>">Games</a></li>
             <li><a href="<%= users_path %>">Users</a></li>
+            <% unless user_signed_in? %>
+              <li><a href="<%= new_user_session_path %>">Log in</a></li>
+            <% end %>
           </ul>
         </div>
         <div class="col-md-10">

@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery.turbolinks
 //= require turbolinks
+//= require jquery_ujs
 
 Turbolinks.enableProgressBar();
 
