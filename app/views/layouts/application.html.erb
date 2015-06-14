@@ -23,7 +23,7 @@
       videojs.options.flash.swf = "<%= ActionController::Base.helpers.asset_path "video-js.swf" %>";
     </script>
   </head>
-  <body>
+  <body data-no-turbolink>
 
     <div class="container-fluid">
       <% if user_signed_in? %>

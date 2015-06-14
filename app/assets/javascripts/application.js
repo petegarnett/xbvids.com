@@ -17,8 +17,6 @@
 //= require jquery_ujs
 //= require video
 
-Turbolinks.enableProgressBar();
-
 $(function () {
   $('#like_form').submit(function (e) {
     e.preventDefault();
