@@ -5,7 +5,7 @@
     <% @users.each do |user| %>
       <% if user.gamertag %>
         <li>
-          <%= link_to user.gamertag, user_path(user.gamertag) %> (<%= pluralize user.videos.count, 'video' %>, <%= pluralize user.screenshots.count, 'screenshot' %>)
+          <%= link_to user.gamertag, user_path(user.gamertag) %> (<%= pluralize user.videos.uploaded.count, 'video' %>, <%= pluralize user.screenshots.uploaded.count, 'screenshot' %>)
         </li>
       <% end %>
     <% end %>
