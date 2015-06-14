@@ -3,26 +3,28 @@
     <%= @user.gamertag %>'s latest Xbox One screenshots.
   <% end %>
   <% content_for :title_bar do %>
-    <% if @user.is_pro? %>
-      <span class="badge pro">pro</span>
-    <% end %>
   <% end %>
 
   <header class="hero">
     <h1><%= @user.gamertag %></h1>
   </header>
 
+  <ul class="nav nav-pills">
+    <li role="presentation"><a href="<%= user_path(@user.gamertag) %>">Videos</a></li>
+    <li role="presentation" class="active"><a href="<%= user_screenshots_path(@user.gamertag) %>">Screenshots</a></li>
+  </ul>
+  <br />
 
   <% if @screenshots.count > 0 %>
-    <ul class="screenshots-grid">
+    <ul class="screenshot-list">
       <% @screenshots.each do |screenshot| %>
         <li>
-          <a href="<%= user_screenshot_path(@user.gamertag, screenshot.xuid) %>">
-              <img class="lazy responsive" data-original="<%= ImageHelper.resized(screenshot.url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
-          </a>
+          <a href="<%= user_screenshot_path(@user.gamertag, screenshot.xuid) %>"><img src="<%= ImageHelper.resized(screenshot.url, 375) %>" class="img-rounded img-responsive" /></a>
         </li>
       <% end %>
     </ul>
+
+    <%= will_paginate @screenshots %>
   <% else %>
     <p>
       <%= @user.gamertag %> has not uploaded any screenshots yet.
