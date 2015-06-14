@@ -5,6 +5,6 @@ class Screenshot < ActiveRecord::Base
   scope :uploaded, -> { where(:is_uploaded => true) }
 
   def cdn_url
-    return "https://dcw5p6q8lhu7t.cloudfront.net/%s" % [xuid]
+    return "https://dcw5p6q8lhu7t.cloudfront.net/%s.png" % [xuid]
   end
 end
