@@ -8,6 +8,10 @@ class Video < ActiveRecord::Base
     return "https://d28pv9m582c384.cloudfront.net/%s.mp4" % [clip_id]
   end
 
+  def cdn_rtmp_original_url
+    return "rtmp://s16osvqw5sdzqt.cloudfront.net/cfx/st/mp4:%s.mp4".html_safe % [clip_id]
+  end
+
   def cdn_clip_url
     return cdn_original_url if transcoded_notification_count == 0
     return "https://d16qbvaw6mbnw7.cloudfront.net/%s/720p.mp4" % [clip_id]

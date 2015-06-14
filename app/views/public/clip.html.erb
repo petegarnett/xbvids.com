@@ -31,9 +31,20 @@
     <!-- <script src="//platform.twitter.com/widgets.js" defer></script> -->
   <% end %>
 
-  <video autoplay controls poster="<%= @video.cdn_thumbnail_url %>">
+  <video controls id="video" class="video-js vjs-default-skin" width="auto" height="auto">
     <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
+    <source type="rtmp/mp4" src="<%= @video.cdn_rtmp_original_url %>">
   </video>
+
+  <script type="text/javascript">
+    videojs("video", {
+      techOrder: ["flash", "html5"],
+      poster: "<%= @video.cdn_thumbnail_url %>",
+      controls: true
+    }, function(){
+
+    });
+  </script>
 
   <div class="media">
     <div class="media-left">

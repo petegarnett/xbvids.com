@@ -51,5 +51,6 @@ gem 'newrelic_rpm'
 gem 'jquery-turbolinks'
 
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'videojs_rails'
 
 gem 'stathat'
