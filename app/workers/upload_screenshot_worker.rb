@@ -5,7 +5,7 @@ class UploadScreenshotWorker
     require 'open-uri'
 
     s3 = AWS::S3.new
-    bucket_name = 'xbone-screenshots'
+    bucket_name = 'xbone-screenshots-eu'
 
     screenshot = Screenshot.find_by_xuid screenshot_xuid
 
