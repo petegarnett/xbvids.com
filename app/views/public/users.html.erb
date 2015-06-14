@@ -5,10 +5,7 @@
     <% @users.each do |user| %>
       <% if user.gamertag %>
         <li>
-          <%= link_to user.gamertag, user_path(user.gamertag) %>
-          <% if user.is_pro? %>
-            <span class="badge pro">pro</span>
-          <% end %>
+          <%= link_to user.gamertag, user_path(user.gamertag) %> (<%= pluralize user.videos.count, 'video' %>, <%= pluralize user.screenshots.count, 'screenshot' %>)
         </li>
       <% end %>
     <% end %>

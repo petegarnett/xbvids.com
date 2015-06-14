@@ -1,0 +1,46 @@
+$brand-primary: #9757E1;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$dark-grey: #333;
+$light-grey: #bdbec1;
+$purple: #9757E1;
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.video-list, .game-list, .screenshot-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.game-list li {
+  width: calc(10% - 9px);
+  margin-bottom: 1em;
+}
+
+.video-list li {
+  width: calc(20% - 4px);
+}
+
+body {
+  background-color: black;
+  color: $light-grey;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+a {
+  color: $purple;
+}
+
+video {
+  width: 100%;
+}

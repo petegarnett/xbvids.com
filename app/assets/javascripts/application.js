@@ -11,35 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery.turbolinks
-//= require jquery_ujs
 //= require turbolinks
-//= require ./lib/moment
-//= require ./lib/flowplayer
-//= require ./lib/asf.min
-//= require_tree ./lib
-//= require_tree .
+//= require jquery_ujs
 
-
-(function () {
-  var timer;
-
-  document.onmousemove = function () {
-    $('body').addClass('mouse-moving');
-
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      $('body').removeClass('mouse-moving');
-    }, 2000);
-  };
-
-})();
-
-$(document).ready(function () {
-    $("img.lazy").lazyload({
-      effect: 'fadeIn'
-    });
-});
+Turbolinks.enableProgressBar();
 
 $(function () {
   $('#like_form').submit(function (e) {
@@ -59,17 +36,3 @@ $(function () {
     });
   });
 });
-
-$(function() {
-   if (typeof $.fn.flowplayer == 'function') {
-      $("video").parent(".flowplayer").flowplayer({
-         cuepoints: [-0.1]
-      }).bind("cuepoint", function(e, api, cuepoint) {
-        $('.flowplayer .overlay').show();
-      });
-   }
-});
-
-
-
-Turbolinks.enableProgressBar();

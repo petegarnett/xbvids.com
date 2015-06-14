@@ -5,7 +5,7 @@ class PublicController < ApplicationController
     @user = User.find_by_gamertag(params[:user_id])
 
     if @user
-      @videos = @user.videos.uploaded.order('recorded_at DESC')
+      @videos = @user.videos.uploaded.order('recorded_at DESC').paginate(:page => params[:page], :per_page => 25)
     end
   end
 
@@ -13,7 +13,7 @@ class PublicController < ApplicationController
     @user = User.find_by_gamertag(params[:user_id])
 
     if @user
-      @screenshots = @user.screenshots.uploaded.order('date_taken DESC')
+      @screenshots = @user.screenshots.uploaded.order('date_taken DESC').paginate(:page => params[:page], :per_page => 25)
     end
   end
 
@@ -28,8 +28,6 @@ class PublicController < ApplicationController
     Video.increment_counter(:view_count, @video.id)
 
     @random_clips= Video.uploaded.order("random()").limit(3)
-
-    render :layout => 'player'
   end
 
   def clip_twitter_container
@@ -47,6 +45,9 @@ class PublicController < ApplicationController
     end
 
     @no_title = true
+
+    @top_games = Game.top(5)
+    @latest_videos = Video.order(:recorded_at).limit(10)
   end
 
   def users
@@ -61,7 +62,8 @@ class PublicController < ApplicationController
     @game = Game.find_by_xgid(params[:game_id])
 
     if @game
-      @videos = @game.videos.uploaded.order('recorded_at DESC')
+      @latest_videos = @game.videos.uploaded.order('recorded_at DESC').limit(10)
+      @top_videos = @game.videos.uploaded.order('view_count DESC').limit(10)
     end
   end
 

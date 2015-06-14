@@ -1,40 +1,31 @@
-<header class="hero floating">
-  <h1>The ultimate way to share your Xbox One game clips</h1>
+<h1>The easy way to share your Xbox One game clips and screenshots with the world.</h1>
 
-  <ul>
-    <% if user_signed_in? %>
-      <li><a class="button secondary" href="<%= dashboard_path %>">Go to your dashboard</a></li>
-    <% else %>
-      <li><a class="button primary" href="<%= new_user_registration_path %>">Get your clips uploaded too</a></li>
-      <li><a class="button secondary" href="<%= new_user_session_path %>">Log in</a></li>
+<div class="">
+  <p>
+    Latest videos
+  </p>
+
+  <ul class="video-list">
+    <% @latest_videos.each do |video| %>
+      <li>
+          <a href="<%= clip_path(video.clip_id) %>"><img src="<%= video.cdn_thumbnail_url %>" class="img-rounded img-responsive" /></a>
+      </li>
     <% end %>
   </ul>
+</div>
 
-  <ul>
-    <li><a href="<%= popular_path %>">Popular Clips</a></li>
-    <li><a href="<%= games_path %>">Browse By Game</a></li>
-    <li><a href="<%= users_path %>">Browse By User</a></li>
-    <li><a href="<%= faq_path %>">Frequently Asked Questions</a></li>
-  </ul>
-</header>
+<% @top_games.each do |game| %>
+  <div class="">
+    <p>
+      Top <%= link_to(game.name, game_path(game.xgid)) %> videos
+    </p>
 
-<% cache("home_page_videos_#{Video.uploaded.count}") do %>
-  <% @videos = Video.uploaded.order('recorded_at DESC') %>
-  <% if @videos.count > 0 %>
-    <ul class="videos-grid small">
-      <% @videos.each do |video| %>
+    <ul class="video-list">
+      <% game.videos.uploaded.order(:view_count).limit(5).each do |video| %>
         <li>
-          <a href="<%= clip_path(video.clip_id) %>">
-            <% if video.is_uploaded? %>
-              <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
-            <% else %>
-              <p>
-                Still uploading...
-              </p>
-            <% end %>
-          </a>
+          <a href="<%= clip_path(video.clip_id) %>"><img src="<%= video.cdn_thumbnail_url %>" class="img-rounded img-responsive" /></a>
         </li>
       <% end %>
     </ul>
-  <% end %>
+  </div>
 <% end %>

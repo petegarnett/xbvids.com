@@ -3,10 +3,6 @@
     <%= @user.gamertag %>'s latest Xbox One game clips.
   <% end %>
   <% content_for :title_bar do %>
-    <% if @user.is_pro? %>
-      <span class="badge pro">pro</span>
-    <% end %>
-
     <a href="<%= user_screenshots_path(@user.gamertag) %>">Screenshots</a>
   <% end %>
 
@@ -14,22 +10,23 @@
     <h1><%= @user.gamertag %></h1>
   </header>
 
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="<%= user_path(@user.gamertag) %>">Videos</a></li>
+    <li role="presentation"><a href="<%= user_screenshots_path(@user.gamertag) %>">Screenshots</a></li>
+  </ul>
+  <br />
+
   <% if @videos.count > 0 %>
-    <ul class="videos-grid">
+
+    <ul class="video-list">
       <% @videos.each do |video| %>
         <li>
-          <a href="<%= clip_path(video.clip_id) %>">
-            <% if video.is_uploaded? %>
-              <img class="lazy responsive" data-original="<%= ImageHelper.resized(video.cdn_thumbnail_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
-            <% else %>
-              <p>
-                Still uploading.
-              </p>
-            <% end %>
-          </a>
+          <a href="<%= clip_path(video.clip_id) %>"><img src="<%= video.cdn_thumbnail_url %>" class="img-rounded img-responsive" /></a>
         </li>
       <% end %>
     </ul>
+
+    <%= will_paginate @videos %>
   <% else %>
     <p>
       <%= @user.gamertag %> has not uploaded any videos yet.
