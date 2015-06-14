@@ -81,6 +81,8 @@ class FetchScreenshotsWorker
 
           user.screenshots << screenshot_record
           game.screenshots << screenshot_record
+
+          UploadScreenshotWorker.perform_async screenshot_xuid
         end
       end
     end
