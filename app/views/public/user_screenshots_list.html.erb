@@ -18,7 +18,7 @@
       <% @screenshots.each do |screenshot| %>
         <li>
           <a href="<%= user_screenshot_path(@user.gamertag, screenshot.xuid) %>">
-              <img class="lazy responsive" data-original="<%= ImageHelper.resized(screenshot.url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
+              <img class="lazy responsive" data-original="<%= ImageHelper.resized(screenshot.cdn_url, 375) %>" src="<%= ImageHelper.transparent_gif %>" />
           </a>
         </li>
       <% end %>
