@@ -26,14 +26,38 @@ $purple: #9757E1;
   }
 }
 
-.game-list li {
-  width: calc(10% - 9px);
-  margin-bottom: 1em;
-}
-
 .video-list li {
   width: calc(20% - 4px);
 }
+
+.game-list li {
+  margin-left: 1em;
+  margin-bottom: 1em;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .video-list li {
+    width: calc(25% - 3px);
+  }
+}
+
+@media (max-width: 600px) {
+  .video-list li {
+    width: calc(50% - 2px);
+  }
+}
+
+@media (max-width: 400px) {
+  .video-list li {
+    width: 100%;
+  }
+}
+
 
 body {
   background-color: black;
