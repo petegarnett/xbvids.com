@@ -40,7 +40,9 @@
     videojs("video", {
       techOrder: ["flash", "html5"],
       poster: "<%= @video.cdn_thumbnail_url %>",
-      controls: true
+      controls: true,
+      autoplay: true,
+      loop: true
     }, function(){
 
     });
