@@ -15,7 +15,7 @@ class FetchGameWorker
       :xgid => xb_game['ID'],
       :description => xb_game['Description'],
       :developer => xb_game['DeveloperName'],
-      :rating => xb_game['AllTimeAverageRating'] * 100
+      :rating => (xb_game['AllTimeAverageRating'] || 0) * 100
     }
 
     xb_game['Images'].each do |image|
