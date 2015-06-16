@@ -55,7 +55,7 @@ class PublicController < ApplicationController
   end
 
   def games
-    @games = Game.all
+    @games = Game.top(9999999999)
   end
 
   def game
