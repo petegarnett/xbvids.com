@@ -41,7 +41,7 @@ gem 'spring',        group: :development
 
 gem 'httparty'
 gem 'devise'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 1.5'
 gem 'rails_12factor', group: :production
 gem 'passenger'
 gem 'sidekiq'
