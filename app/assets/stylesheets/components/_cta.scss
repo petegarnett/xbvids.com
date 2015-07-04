@@ -1,0 +1,34 @@
+.cta-signup {
+    @include clearfix;
+    background: #74C080;
+
+    @include border-top-radius(5px);
+    @include border-right-radius(5px);
+    @include border-bottom-radius(5px);
+    @include border-left-radius(5px);
+
+    display: block;
+    color: white;
+    padding: 10px;
+
+    p {
+        margin: 0;
+        float: left;
+        /* Create an account to: */
+        font-family: Geomanist-Regular;
+        font-size: 16px;
+        color: #FFFFFF;
+        line-height: 18px;
+        width: 65%;
+    }
+
+    h2 {
+        margin: 0;
+        float: right;
+        font-family: Geomanist-Medium;
+        font-size: 28px;
+        letter-spacing: 2.33px;
+        line-height: 36px;
+        text-transform: uppercase;
+    }
+}

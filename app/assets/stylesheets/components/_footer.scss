@@ -1,0 +1,18 @@
+.container-footer {
+    color: white;
+    font-size: 0.8em;
+
+    a {
+        color: white;
+    }
+
+    ul.menu {
+        a:hover {
+            border-bottom: 2px solid white;
+        }
+    }
+
+    .impressum {
+        text-align: right;
+    }
+}

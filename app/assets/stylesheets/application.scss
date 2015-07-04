@@ -1,0 +1,56 @@
+/*
+ *= require video-js
+ */
+
+$brand-primary: #74C080;
+
+@import "bourbon";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "video-js";
+
+@import "components/logo";
+@import "components/video";
+@import "components/cta";
+@import "components/menu";
+@import "components/game";
+@import "components/footer";
+
+* {
+    font-family: Geomanist-Regular;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: $brand-primary;
+}
+
+.container-body, .container-footer {
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.container-body {
+    color: $brand-primary;
+    background: white;
+}
+
+.container-footer {
+    color: white;
+    background: $brand-primary;
+}
+
+.header-row, .menu-row, .vgutter-row {
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-family: Geomanist-Bold;
+    font-size: 16px;
+    line-height: 24px;
+}

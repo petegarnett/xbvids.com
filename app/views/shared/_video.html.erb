@@ -1,0 +1,10 @@
+<div class="col-md-<%= width %>">
+    <div class="video video-<%= type %>" style="background-image: url('<%= video.cdn_thumbnail_url %>')">
+      <a href="<%= clip_path(video.clip_id) %>" class="play">Play</a>
+      <div class="description">
+        <span class="title"><%= link_to video.user.gamertag, user_path(video.user.gamertag) %> playing <%= link_to(video.game.name, game_path(video.game.xgid)) %></span>
+        <span class="subtitle" data-livestamp="<%= video.recorded_at.to_i %>"><%= video.recorded_at %></span>
+      </div>
+      <div class="accent"></div>
+    </div>
+</div>

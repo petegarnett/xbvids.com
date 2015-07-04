@@ -11,10 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
-//= require jquery.turbolinks
-//= require turbolinks
 //= require jquery_ujs
+//= require ./lib/moment
+//= require ./lib/livestamp
 //= require video
 
 $(function () {

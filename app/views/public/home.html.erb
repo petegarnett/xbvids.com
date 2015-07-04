@@ -1,31 +1,68 @@
-<h1>The easy way to share your Xbox One game clips and screenshots with the world.</h1>
+<section>
+    <h3 class="title">Most Watched Clips</h3>
+    <div class="row">
+        <%= render 'shared/video', :video => @latest_videos.first,  :type => 'large',  :width => 6 %>
+        <%= render 'shared/video', :video => @latest_videos.second, :type => 'large',  :width => 6 %>
+    </div>
+    <div class="row">
+        <%= render 'shared/video', :video => @latest_videos.third,  :type => 'medium', :width => 4 %>
+        <%= render 'shared/video', :video => @latest_videos.fourth, :type => 'medium', :width => 4 %>
+        <%= render 'shared/video', :video => @latest_videos.fifth,  :type => 'medium', :width => 4 %>
+    </div>
+</section>
 
-<div class="">
-  <p>
-    Latest videos
-  </p>
+<section>
+    <h3 class="title">Latest Uploads</h3>
+    <div class="row">
+        <%= render 'shared/video', :video => @latest_videos.first,  :type => 'small', :width => 2 %>
+        <%= render 'shared/video', :video => @latest_videos.second, :type => 'small', :width => 2 %>
+        <%= render 'shared/video', :video => @latest_videos.third,  :type => 'small', :width => 2 %>
+        <%= render 'shared/video', :video => @latest_videos.fourth, :type => 'small', :width => 2 %>
+        <%= render 'shared/video', :video => @latest_videos.fifth,  :type => 'small', :width => 2 %>
+        <%= render 'shared/video', :video => @latest_videos.fifth,  :type => 'small', :width => 2 %>
+    </div>
+</section>
 
-  <ul class="video-list">
-    <% @latest_videos.each do |video| %>
-      <li>
-          <a href="<%= clip_path(video.clip_id) %>"><img src="<%= video.cdn_thumbnail_url %>" class="img-rounded img-responsive" /></a>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<section>
+    <h3 class="title">Top Destiny Clips</h3>
+    <div class="row">
+        <%= render 'shared/video', :video => @latest_videos.first,  :type => 'small', :width => 3 %>
+        <%= render 'shared/video', :video => @latest_videos.second, :type => 'small', :width => 3 %>
+        <%= render 'shared/video', :video => @latest_videos.third,  :type => 'small', :width => 3 %>
+        <%= render 'shared/video', :video => @latest_videos.fourth, :type => 'small', :width => 3 %>
+    </div>
+</section>
 
-<% @top_games.each do |game| %>
-  <div class="">
-    <p>
-      Top <%= link_to(game.name, game_path(game.xgid)) %> videos
-    </p>
-
-    <ul class="video-list">
-      <% game.videos.uploaded.order(:view_count).limit(5).each do |video| %>
-        <li>
-          <a href="<%= clip_path(video.clip_id) %>"><img src="<%= video.cdn_thumbnail_url %>" class="img-rounded img-responsive" /></a>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<section>
+    <h3 class="title">Popular Games</h3>
+    <div class="row">
+        <%= render 'shared/game', :game => Game.all.first,  :type => 'full', :width => 3 %>
+        <div class="col-md-3">
+            <div class="row vgutter-row">
+                <%= render 'shared/game', :game => Game.all.second,  :type => 'half', :width => 12 %>
+            </div>
+            <div class="row">
+                <%= render 'shared/game', :game => Game.all.third,  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => Game.all.fourth,  :type => 'quarter', :width => 6 %>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row vgutter-row">
+                <%= render 'shared/game', :game => Game.all.fifth,  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => Game.all.first,  :type => 'quarter', :width => 6 %>
+            </div>
+            <div class="row">
+                <%= render 'shared/game', :game => Game.all.second,  :type => 'half', :width => 12 %>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row vgutter-row">
+                <%= render 'shared/game', :game => Game.all.third,  :type => 'half', :width => 12 %>
+            </div>
+            <div class="row">
+                <%= render 'shared/game', :game => Game.all.fourth,  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => Game.all.fifth,  :type => 'quarter', :width => 6 %>
+            </div>
+        </div>
+    </div>
+</section>

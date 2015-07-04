@@ -1,0 +1,29 @@
+.game {
+    width: 100%;
+
+    a {
+        display: block;
+        width: 100%;
+        background: transparent no-repeat top center;
+        background-size: cover;
+        text-indent: -999999px;
+    }
+
+    &.game-full {
+        a {
+            height: 270px;
+        }
+    }
+
+    &.game-half {
+        a {
+            height: 125px;
+        }
+    }
+
+    &.game-quarter {
+        a {
+            height: 125px;
+        }
+    }
+}

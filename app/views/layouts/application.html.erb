@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,61 +8,108 @@
     <%= render 'global/head' %>
     <%= yield(:additional_head) %>
 
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
     <link rel="dns-prefetch" href="//d3s9v1x1919qoo.cloudfront.net">
     <link rel="dns-prefetch" href="//s16osvqw5sdzqt.cloudfront.net">
 
     <script>
-      videojs.options.flash.swf = "<%= ActionController::Base.helpers.asset_path "video-js.swf" %>";
+    videojs.options.flash.swf = "<%= ActionController::Base.helpers.asset_path "video-js.swf" %>";
     </script>
-  </head>
-  <body data-no-turbolink>
 
-    <div class="container-fluid">
-      <% if user_signed_in? %>
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-collapse">
-              <p class="navbar-text navbar-right">
-                Signed in as <%= link_to current_user.gamertag, user_path(current_user.gamertag) %>.
-                <%= link_to "Log out?", destroy_user_session_path, :method => :delete, :data => { :confirm => 'Are you sure you want to log out?' } %>
-              </p>
+</head>
+<body data-no-turbolink>
+    <div class="container-fluid container-body">
+        <div class="row header-row">
+            <div class="col-md-8">
+                <h1 class="logo"><span>xb</span>vids</h1>
+                <p class="tagline">
+                    The easiest way to share your Xbox One gameclips and screenshots with the world.
+                </p>
             </div>
-          </div>
-        </nav>
-      <% end %>
+            <div class="col-md-4">
+                <a class="cta-signup" href="">
+                    <p>
+                        Create an account to add your game clips and start sharing them
+                    </p>
+                    <h2>Sign up</h2>
+                </a>
+            </div>
+        </div>
 
-      <div class="row">
-        <div class="col-md-2">
-          <h1>xbvids</h1>
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="<%= root_path %>">Home</a></li>
-            <li><a href="<%= games_path %>">Games</a></li>
-            <li><a href="<%= users_path %>">Users</a></li>
-            <% unless user_signed_in? %>
-              <li><a href="<%= new_user_session_path %>">Log in</a></li>
-            <% end %>
-          </ul>
+        <div class="row menu-row">
+            <div class="col-md-12">
+                <ul class="menu">
+                    <li><a href="">Featured</a></li>
+                    <li><a href="">Games</a></li>
+                    <li><a href="">Players</a></li>
+                    <li class="spacer">•</li>
+                    <% if user_signed_in? %>
+                        <li>
+                            <%= link_to current_user.gamertag, user_path(current_user.gamertag) %>
+                        </li>
+                        <li>
+                            <%= link_to "Log out?", destroy_user_session_path, :method => :delete, :data => { :confirm => 'Are you sure you want to log out?' } %>
+                        </li>
+                    <% else %>
+                        <li><a href="">Log in</a></li>
+                    <% end %>
+                </ul>
+            </div>
         </div>
-        <div class="col-md-10">
-          <%= yield %>
+
+        <%= yield %>
+    </div>
+
+    <div class="container-fluid container-footer">
+        <div class="row vgutter-row">
+            <div class="col-md-6">
+                <ul class="menu">
+                    <li><a href="">Featured</a></li>
+                    <li><a href="">Games</a></li>
+                    <li><a href="">Players</a></li>
+                    <li class="spacer">•</li>
+                    <% if user_signed_in? %>
+                        <li>
+                            <%= link_to current_user.gamertag, user_path(current_user.gamertag) %>
+                        </li>
+                        <li>
+                            <%= link_to "Log out?", destroy_user_session_path, :method => :delete, :data => { :confirm => 'Are you sure you want to log out?' } %>
+                        </li>
+                    <% else %>
+                        <li><a href="">Log in</a></li>
+                    <% end %>
+                </ul>
+            </div>
+            <div class="col-md-6">
+
+            </div>
         </div>
-      </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="logo"><span>xb</span>vids</h1>
+                <p class="tagline">
+                    The easiest way to share your Xbox One gameclips and screenshots with the world.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <p class="impressum">
+                    Made by <a href="https://twitter.com/nickj89">@nickj89</a>.
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
     <%= render 'global/ga' %>
-
     <%= yield(:additional_footer) %>
 
-  </body>
+</body>
 </html>
