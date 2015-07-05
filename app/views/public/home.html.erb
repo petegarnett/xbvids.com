@@ -36,32 +36,26 @@
 <section>
     <h3 class="title">Popular Games</h3>
     <div class="row">
-        <%= render 'shared/game', :game => Game.all.first,  :type => 'full', :width => 3 %>
+        <%= render 'shared/game', :game => @top_games.first,  :type => 'full', :width => 3 %>
         <div class="col-md-3">
             <div class="row vgutter-row">
-                <%= render 'shared/game', :game => Game.all.second,  :type => 'half', :width => 12 %>
+                <%= render 'shared/game', :game => @top_games.third,  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => @top_games.fourth,  :type => 'quarter', :width => 6 %>
             </div>
             <div class="row">
-                <%= render 'shared/game', :game => Game.all.third,  :type => 'quarter', :width => 6 %>
-                <%= render 'shared/game', :game => Game.all.fourth,  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => @top_games.fifth,  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => @top_games[5],  :type => 'quarter', :width => 6 %>
             </div>
         </div>
+        <%= render 'shared/game', :game => @top_games.second,  :type => 'full', :width => 3 %>
         <div class="col-md-3">
             <div class="row vgutter-row">
-                <%= render 'shared/game', :game => Game.all.fifth,  :type => 'quarter', :width => 6 %>
-                <%= render 'shared/game', :game => Game.all.first,  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => @top_games[6],  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => @top_games[7],  :type => 'quarter', :width => 6 %>
             </div>
             <div class="row">
-                <%= render 'shared/game', :game => Game.all.second,  :type => 'half', :width => 12 %>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="row vgutter-row">
-                <%= render 'shared/game', :game => Game.all.third,  :type => 'half', :width => 12 %>
-            </div>
-            <div class="row">
-                <%= render 'shared/game', :game => Game.all.fourth,  :type => 'quarter', :width => 6 %>
-                <%= render 'shared/game', :game => Game.all.fifth,  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => @top_games[8],  :type => 'quarter', :width => 6 %>
+                <%= render 'shared/game', :game => @top_games[9],  :type => 'quarter', :width => 6 %>
             </div>
         </div>
     </div>

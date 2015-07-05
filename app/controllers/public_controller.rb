@@ -46,7 +46,7 @@ class PublicController < ApplicationController
 
     @no_title = true
 
-    @top_games = Game.top(5)
+    @top_games = Game.top(10)
     @latest_videos = Video.uploaded.order("recorded_at DESC").limit(10)
   end
 
