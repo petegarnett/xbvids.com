@@ -1,13 +1,13 @@
 <section>
     <h3 class="title">Most Watched Clips</h3>
     <div class="row">
-        <%= render 'shared/video', :video => @latest_videos.first,  :type => 'large',  :width => 6 %>
-        <%= render 'shared/video', :video => @latest_videos.second, :type => 'large',  :width => 6 %>
+        <%= render 'shared/video', :video => @most_watched_videos.first,  :type => 'large',  :width => 6 %>
+        <%= render 'shared/video', :video => @most_watched_videos.second, :type => 'large',  :width => 6 %>
     </div>
     <div class="row">
-        <%= render 'shared/video', :video => @latest_videos.third,  :type => 'medium', :width => 4 %>
-        <%= render 'shared/video', :video => @latest_videos.fourth, :type => 'medium', :width => 4 %>
-        <%= render 'shared/video', :video => @latest_videos.fifth,  :type => 'medium', :width => 4 %>
+        <%= render 'shared/video', :video => @most_watched_videos.third,  :type => 'medium', :width => 4 %>
+        <%= render 'shared/video', :video => @most_watched_videos.fourth, :type => 'medium', :width => 4 %>
+        <%= render 'shared/video', :video => @most_watched_videos.fifth,  :type => 'medium', :width => 4 %>
     </div>
 </section>
 
@@ -24,12 +24,12 @@
 </section>
 
 <section>
-    <h3 class="title">Top Destiny Clips</h3>
+    <h3 class="title">Top <%= @top_game.name %> Clips</h3>
     <div class="row">
-        <%= render 'shared/video', :video => @latest_videos.first,  :type => 'small', :width => 3 %>
-        <%= render 'shared/video', :video => @latest_videos.second, :type => 'small', :width => 3 %>
-        <%= render 'shared/video', :video => @latest_videos.third,  :type => 'small', :width => 3 %>
-        <%= render 'shared/video', :video => @latest_videos.fourth, :type => 'small', :width => 3 %>
+        <%= render 'shared/video', :video => @top_game_videos.first,  :type => 'small', :width => 3 %>
+        <%= render 'shared/video', :video => @top_game_videos.second, :type => 'small', :width => 3 %>
+        <%= render 'shared/video', :video => @top_game_videos.third,  :type => 'small', :width => 3 %>
+        <%= render 'shared/video', :video => @top_game_videos.fourth, :type => 'small', :width => 3 %>
     </div>
 </section>
 

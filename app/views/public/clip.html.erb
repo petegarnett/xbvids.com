@@ -50,20 +50,20 @@
   <section>
       <h3 class="title">More clips from <%= @video.user.gamertag %></h3>
       <div class="row">
-          <%= render 'shared/video', :video => @video,  :type => 'small', :width => 3 %>
-          <%= render 'shared/video', :video => @video, :type => 'small', :width => 3 %>
-          <%= render 'shared/video', :video => @video,  :type => 'small', :width => 3 %>
-          <%= render 'shared/video', :video => @video, :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @user_clips.first,  :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @user_clips.second, :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @user_clips.third,  :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @user_clips.fourth, :type => 'small', :width => 3 %>
       </div>
   </section>
 
   <section>
       <h3 class="title">More <%= @video.game.name %> Clips</h3>
       <div class="row">
-          <%= render 'shared/video', :video => @video,  :type => 'small', :width => 3 %>
-          <%= render 'shared/video', :video => @video, :type => 'small', :width => 3 %>
-          <%= render 'shared/video', :video => @video,  :type => 'small', :width => 3 %>
-          <%= render 'shared/video', :video => @video, :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @game_clips.first,  :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @game_clips.second, :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @game_clips.third,  :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @game_clips.fourth, :type => 'small', :width => 3 %>
       </div>
   </section>
 

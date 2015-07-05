@@ -27,7 +27,8 @@ class PublicController < ApplicationController
 
     Video.increment_counter(:view_count, @video.id)
 
-    @random_clips= Video.uploaded.order("random()").limit(3)
+    @game_clips = @video.game.videos.uploaded.order("random()").limit(4)
+    @user_clips = @video.user.videos.uploaded.order("random()").limit(4)
   end
 
   def clip_twitter_container
@@ -47,7 +48,12 @@ class PublicController < ApplicationController
     @no_title = true
 
     @top_games = Game.top(10)
-    @latest_videos = Video.uploaded.order("recorded_at DESC").limit(10)
+    @top_game = @top_games.first
+    @top_game_videos = @top_game.videos.uploaded.order("view_count DESC").limit(4)
+
+    @most_watched_videos = Video.uploaded.order("view_count DESC").limit(5)
+
+    @latest_videos = Video.uploaded.order("recorded_at DESC").limit(5)
   end
 
   def users
