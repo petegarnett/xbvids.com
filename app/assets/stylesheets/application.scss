@@ -11,6 +11,7 @@ $grey: #939994;
 @import "bootstrap";
 @import "video-js";
 
+@import "components/fonts";
 @import "components/logo";
 @import "components/video";
 @import "components/screenshot";
@@ -22,7 +23,7 @@ $grey: #939994;
 @import "components/games_list";
 
 * {
-    font-family: Geomanist-Regular;
+    font-family: "geomanist_regularregular";
     -webkit-font-smoothing: antialiased;
 }
 
@@ -64,7 +65,7 @@ body {
 }
 
 h3 {
-    font-family: Geomanist-Bold;
+    font-family: "geomanistbold";
     font-size: 16px;
     line-height: 24px;
 }
