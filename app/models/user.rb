@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def is_pro?
     return true
   end
+
+  def total_views
+      videos.sum('view_count')
+  end
 end

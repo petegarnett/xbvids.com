@@ -1,10 +1,14 @@
 <div class="gamerpane">
+  <!--
   <a href=""><img src="https://pbs.twimg.com/profile_images/448105818466963457/tQsf_zqs_400x400.jpeg" /></a>
-  <a href=""><%= user.gamertag %></a>
+  -->
+  <a href="<%= user_path(user.gamertag) %>"><%= user.gamertag %></a>
+  <!--
   <p>
       <span class="i-score">g</span> 40,300
   </p>
+  -->
   <p class="stats">
-      <%= user.videos.count %> clips, 0 views
+      <%= user.videos.count %> clips, <%= user.total_views %> views
   </p>
 </div>
