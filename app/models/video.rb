@@ -38,4 +38,26 @@ class Video < ActiveRecord::Base
   def is_uploaded?
     is_thumbnail_uploaded and is_clip_uploaded
   end
+
+  def mlg_percent
+      return 0 if mlglolwtf_count == 0
+
+      (mlg_count.to_f / mlglolwtf_count) * 100
+  end
+
+  def lol_percent
+      return 0 if mlglolwtf_count == 0
+
+      (lol_count.to_f / mlglolwtf_count) * 100
+  end
+
+  def wtf_percent
+      return 0 if mlglolwtf_count == 0
+
+      (wtf_count.to_f / mlglolwtf_count) * 100
+  end
+
+  def mlglolwtf_count
+      mlg_count.to_f + lol_count.to_f + wtf_count.to_f
+  end
 end

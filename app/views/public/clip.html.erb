@@ -33,7 +33,7 @@
 
   <h3><%= @video.user.gamertag %> playing <%= @video.title %></h3>
 
-  <div class="row row-breakout">
+  <div class="row row-breakout vgutter-row">
       <%= render 'shared/video', :video => @video,  :type => 'large', :width => 10, :playable => true %>
       <div class="col-md-2">
           <div class="row vgutter-row">
@@ -43,6 +43,41 @@
           </div>
           <div class="row">
             <%= render 'shared/game', :game => @video.game,  :type => 'full', :width => 12 %>
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-10">
+          <form class="js-vote vote-form" action="<%= vote_path %>" method="post">
+              <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+              <input type="hidden" name="type" value="mlg" />
+
+              <button class="btn-vote"><span class="icon">😎</span> <span class="js-mlg_percent"><%= @video.mlg_percent.to_i %></span>% <span class="tag">MLG</span></button>
+          </form>
+
+          <form class="js-vote vote-form" action="<%= vote_path %>" method="post">
+              <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+              <input type="hidden" name="type" value="wtf" />
+
+              <button class="btn-vote"><span class="icon">😮</span> <span class="js-wtf_percent"><%= @video.wtf_percent.to_i %></span>% <span class="tag">WTF</span></button>
+          </form>
+
+          <form class="js-vote vote-form" action="<%= vote_path %>" method="post">
+              <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+              <input type="hidden" name="type" value="lol" />
+
+              <button class="btn-vote"><span class="icon">😂</span> <span class="js-lol_percent"><%= @video.lol_percent.to_i %></span>% <span class="tag">LOL</span></button>
+          </form>
+      </div>
+      <div class="col-md-2">
+          <div class="stats">
+              <p class="view_count">
+                  Viewed <span class="js-view_count"><%= @video.view_count %></span> times.
+              </p>
+              <p class="recorded_at">
+                  <%= @video.recorded_at.to_s(:long) %>
+              </p>
           </div>
       </div>
   </div>

@@ -11,61 +11,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614152818) do
+ActiveRecord::Schema.define(version: 20150705124617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "games", force: true do |t|
-    t.string   "xgid"
-    t.string   "name"
+  create_table "games", force: :cascade do |t|
+    t.string   "xgid",             limit: 255
+    t.string   "name",             limit: 255
     t.text     "description"
-    t.string   "developer"
-    t.string   "image_box"
-    t.string   "image_hero_title"
-    t.string   "image_hero_super"
+    t.string   "developer",        limit: 255
+    t.string   "image_box",        limit: 255
+    t.string   "image_hero_title", limit: 255
+    t.string   "image_hero_super", limit: 255
     t.integer  "rating"
-    t.string   "title_id"
+    t.string   "title_id",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "games", ["xgid"], name: "index_games_on_xgid", using: :btree
 
-  create_table "screenshots", force: true do |t|
+  create_table "screenshots", force: :cascade do |t|
     t.integer  "game_id"
     t.integer  "user_id"
-    t.string   "xuid"
+    t.string   "xuid",               limit: 255
     t.text     "url"
     t.integer  "width"
     t.integer  "height"
     t.text     "thumbnail_small"
     t.text     "thumbnail_large"
     t.datetime "date_taken"
-    t.string   "screenshot_type"
+    t.string   "screenshot_type",    limit: 255
     t.boolean  "saved_by_user"
     t.integer  "achievement_id"
     t.integer  "greatest_moment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_uploaded",        default: false
+    t.boolean  "is_uploaded",                    default: false
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "gamertag"
-    t.string   "xuid"
+    t.string   "gamertag",               limit: 255
+    t.string   "xuid",                   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -73,23 +73,26 @@ ActiveRecord::Schema.define(version: 20150614152818) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["xuid"], name: "index_users_on_xuid", using: :btree
 
-  create_table "videos", force: true do |t|
-    t.string   "clip_id"
+  create_table "videos", force: :cascade do |t|
+    t.string   "clip_id",                       limit: 255
     t.datetime "recorded_at"
-    t.string   "clip_type"
-    t.string   "thumbnail_large"
+    t.string   "clip_type",                     limit: 255
+    t.string   "thumbnail_large",               limit: 255
     t.text     "source_uri"
-    t.string   "title"
+    t.string   "title",                         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "is_thumbnail_uploaded",         default: false
-    t.boolean  "is_clip_uploaded",              default: false
+    t.boolean  "is_thumbnail_uploaded",                     default: false
+    t.boolean  "is_clip_uploaded",                          default: false
     t.integer  "game_id"
-    t.integer  "like_count",                    default: 0
-    t.string   "caption"
-    t.integer  "view_count",                    default: 0
-    t.integer  "transcoded_notification_count", default: 0
+    t.integer  "like_count",                                default: 0
+    t.string   "caption",                       limit: 255
+    t.integer  "view_count",                                default: 0
+    t.integer  "transcoded_notification_count",             default: 0
+    t.integer  "mlg_count",                                 default: 0
+    t.integer  "wtf_count",                                 default: 0
+    t.integer  "lol_count",                                 default: 0
   end
 
   add_index "videos", ["clip_id"], name: "index_videos_on_clip_id", unique: true, using: :btree

@@ -21,6 +21,7 @@ $grey: #939994;
 @import "components/footer";
 @import "components/gamerpane";
 @import "components/games_list";
+@import "components/vote";
 
 * {
     font-family: "geomanist_regularregular";
@@ -68,4 +69,16 @@ h3 {
     font-family: "geomanistbold";
     font-size: 16px;
     line-height: 24px;
+}
+
+.stats {
+    text-align: right;
+    
+    .view_count {
+        font-size: em(18);
+    }
+
+    .recorded_at {
+        font-size: em(14);
+    }
 }

@@ -81,13 +81,32 @@ class PublicController < ApplicationController
   def vote
     video = Video.find_by_clip_id(params[:clip_id])
 
-    if video
-      Video.increment_counter(:like_count, video.id)
+    vote_type = params[:type]
+    field_map = {
+        "mlg" => "mlg_count",
+        "wtf" => "wtf_count",
+        "lol" => "lol_count"
+    }
+
+    field = field_map[vote_type]
+
+    if video and field
+      Video.increment_counter(field, video.id)
+      video.reload
     end
 
     response.headers['X-Cant-Be-Arsed'] = 'To-Stop-You-Voting-Multiple-Times'
 
-    head 200
+    render :json => {
+        :clip_id => video.clip_id,
+        :wtf_percent => video.wtf_percent.to_i,
+        :lol_percent => video.lol_percent.to_i,
+        :mlg_percent => video.mlg_percent.to_i,
+        :wtf_count   => video.wtf_count,
+        :lol_count   => video.lol_count,
+        :mlg_count   => video.mlg_count,
+        :view_count  => video.view_count
+    }
   end
 
   def faq

@@ -17,20 +17,23 @@
 //= require video
 
 $(function () {
-  $('#like_form').submit(function (e) {
+  $('.js-vote').submit(function (e) {
     e.preventDefault();
 
-    var submit_button = $(this).find('input[type=submit]');
     var action = $(this).attr('action');
-
-    submit_button.hide();
+    var form_fields = $(this).serialize();
 
     $.ajax({
       type: 'POST',
       url: action,
-      success: function () {
-        $('#like_count').html(($('#like_count').html() * 1) + 1);
+      data: form_fields,
+      success: function (response) {
+        $.each(response, function (key, value) {
+            $('.js-' + key).html(value);
+        });
       }
     });
+
+    $(this).find('button').attr('disabled', 'disabled');
   });
 });
