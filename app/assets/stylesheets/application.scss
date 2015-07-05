@@ -3,6 +3,7 @@
  */
 
 $brand-primary: #74C080;
+$grey: #939994;
 
 @import "bourbon";
 
@@ -12,10 +13,13 @@ $brand-primary: #74C080;
 
 @import "components/logo";
 @import "components/video";
+@import "components/screenshot";
 @import "components/cta";
 @import "components/menu";
 @import "components/game";
 @import "components/footer";
+@import "components/gamerpane";
+@import "components/games_list";
 
 * {
     font-family: Geomanist-Regular;
@@ -47,6 +51,16 @@ body {
 
 .header-row, .menu-row, .vgutter-row {
     margin-bottom: 20px;
+}
+
+.row-breakout {
+    background-color: $brand-primary;
+    margin-left: -500px;
+    padding-left: 485px;
+    margin-right: -500px;
+    padding-right: 485px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 h3 {

@@ -5,7 +5,7 @@ class PublicController < ApplicationController
     @user = User.find_by_gamertag(params[:user_id])
 
     if @user
-      @videos = @user.videos.uploaded.order('recorded_at DESC').paginate(:page => params[:page], :per_page => 25)
+      @videos = @user.videos.uploaded.order('recorded_at DESC').paginate(:page => params[:page], :per_page => 24)
     end
   end
 
@@ -13,7 +13,7 @@ class PublicController < ApplicationController
     @user = User.find_by_gamertag(params[:user_id])
 
     if @user
-      @screenshots = @user.screenshots.uploaded.order('date_taken DESC').paginate(:page => params[:page], :per_page => 25)
+      @screenshots = @user.screenshots.uploaded.order('date_taken DESC').paginate(:page => params[:page], :per_page => 24)
     end
   end
 

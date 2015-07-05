@@ -5,9 +5,7 @@
   <% content_for :title_bar do %>
   <% end %>
 
-  <header class="hero">
-    <h1><%= @user.gamertag %></h1>
-  </header>
+  <h1><%= @user.gamertag %></h1>
 
   <ul class="nav nav-pills">
     <li role="presentation"><a href="<%= user_path(@user.gamertag) %>">Videos</a></li>
@@ -16,13 +14,12 @@
   <br />
 
   <% if @screenshots.count > 0 %>
-    <ul class="screenshot-list">
+
+    <div class="row">
       <% @screenshots.each do |screenshot| %>
-        <li>
-          <a href="<%= user_screenshot_path(@user.gamertag, screenshot.xuid) %>"><img src="<%= ImageHelper.resized(screenshot.cdn_url, 375) %>" class="img-rounded img-responsive" /></a>
-        </li>
+        <%= render 'shared/screenshot', :screenshot => screenshot,  :type => 'medium', :width => 4 %>
       <% end %>
-    </ul>
+    </div>
 
     <%= will_paginate @screenshots %>
   <% else %>

@@ -6,9 +6,7 @@
     <a href="<%= user_screenshots_path(@user.gamertag) %>">Screenshots</a>
   <% end %>
 
-  <header class="hero">
-    <h1><%= @user.gamertag %></h1>
-  </header>
+  <h1><%= @user.gamertag %></h1>
 
   <ul class="nav nav-pills">
     <li role="presentation" class="active"><a href="<%= user_path(@user.gamertag) %>">Videos</a></li>
@@ -18,13 +16,11 @@
 
   <% if @videos.count > 0 %>
 
-    <ul class="video-list">
-      <% @videos.each do |video| %>
-        <li>
-          <a href="<%= clip_path(video.clip_id) %>"><img src="<%= video.cdn_thumbnail_url %>" class="img-rounded img-responsive" /></a>
-        </li>
-      <% end %>
-    </ul>
+    <div class="row">
+        <% @videos.each do |video| %>
+          <%= render 'shared/video', :video => video,  :type => 'medium', :width => 4 %>
+        <% end %>
+    </div>
 
     <%= will_paginate @videos %>
   <% else %>

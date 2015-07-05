@@ -31,50 +31,41 @@
     <!-- <script src="//platform.twitter.com/widgets.js" defer></script> -->
   <% end %>
 
-  <video controls id="video" class="video-js vjs-default-skin" width="auto" height="auto">
-    <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
-    <source type="rtmp/mp4" src="<%= @video.cdn_rtmp_original_url %>">
-  </video>
+  <h3><%= @video.user.gamertag %> playing <%= @video.title %></h3>
 
-  <script type="text/javascript">
-    videojs("video", {
-      techOrder: ["flash", "html5"],
-      poster: "<%= @video.cdn_thumbnail_url %>",
-      controls: true,
-      autoplay: true,
-      loop: true
-    }, function(){
-
-    });
-  </script>
-
-  <div class="media">
-    <div class="media-left">
-      <a href="<%= game_path(@video.game.xgid) %>">
-        <img class="media-object" src="<%= ImageHelper.resized(@video.game.image_box, 200) %>" style="width: 100px;" />
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading"><%= link_to @video.user.gamertag, user_path(@video.user.gamertag) %> playing <%= link_to @video.game.name, game_path(@video.game.xgid) %></h4>
-      <p>
-        This clip was recorded on <span data-livestamp="<%= @video.recorded_at.to_time.to_i %>"><%= @video.recorded_at %></span>.
-      </p>
-      <div class="like-box">
-        <span>
-          <%= pluralize @video.view_count + 1, 'view' %>
-        </span>
-
-        <span>
-          <span id="like_count"><%= @video.like_count %></span> <%= "like".pluralize(@video.like_count) %>
-        </span>
-
-        <form id="like_form" action="<%= vote_path(@video.clip_id) %>" method="post">
-          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
-          <input type="submit" value="Like!" />
-        </form>
+  <div class="row row-breakout">
+      <%= render 'shared/video', :video => @video,  :type => 'large', :width => 10, :playable => true %>
+      <div class="col-md-2">
+          <div class="row vgutter-row">
+              <div class="col-md-12">
+                  <%= render "shared/gamerpane", :user => @video.user %>
+              </div>
+          </div>
+          <div class="row">
+            <%= render 'shared/game', :game => @video.game,  :type => 'full', :width => 12 %>
+          </div>
       </div>
-    </div>
   </div>
+
+  <section>
+      <h3 class="title">More clips from <%= @video.user.gamertag %></h3>
+      <div class="row">
+          <%= render 'shared/video', :video => @video,  :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @video, :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @video,  :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @video, :type => 'small', :width => 3 %>
+      </div>
+  </section>
+
+  <section>
+      <h3 class="title">More <%= @video.game.name %> Clips</h3>
+      <div class="row">
+          <%= render 'shared/video', :video => @video,  :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @video, :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @video,  :type => 'small', :width => 3 %>
+          <%= render 'shared/video', :video => @video, :type => 'small', :width => 3 %>
+      </div>
+  </section>
 
 <% elsif @video and not @video.is_uploaded? %>
   <p>Clip has not been uploaded yet!</p>

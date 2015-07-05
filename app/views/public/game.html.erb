@@ -3,43 +3,40 @@
     <%= @game.name %>'s latest Xbox One game clips.
   <% end %>
 
-  <header class="hero">
-    <h1><%= @game.name %></h1>
-  </header>
+  <h1><%= @game.name %></h1>
 
   <% if @latest_videos.count > 0 or @top_videos.count > 0 %>
-    <div class="">
-      <p>
-        Latest <%= @game.name %> videos
-      </p>
 
-      <ul class="video-list">
-        <% @latest_videos.each do |video| %>
-          <li>
-            <a href="<%= clip_path(video.clip_id) %>"><img src="<%= video.cdn_thumbnail_url %>" class="img-rounded img-responsive" /></a>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+  <section>
+      <h3 class="title">Latest Uploads</h3>
+      <div class="row">
+          <%= render 'shared/video', :video => @latest_videos.first,  :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @latest_videos.second, :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @latest_videos.third,  :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @latest_videos.fourth, :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @latest_videos.fifth,  :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @latest_videos.fifth,  :type => 'small', :width => 2 %>
+      </div>
+  </section>
 
-    <div class="">
-      <p>
-        Top <%= @game.name %> videos
-      </p>
+  <section>
+      <h3 class="title">Top Uploads</h3>
+      <div class="row">
+          <%= render 'shared/video', :video => @top_videos.first,  :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @top_videos.second, :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @top_videos.third,  :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @top_videos.fourth, :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @top_videos.fifth,  :type => 'small', :width => 2 %>
+          <%= render 'shared/video', :video => @top_videos.fifth,  :type => 'small', :width => 2 %>
+      </div>
+  </section>
 
-      <ul class="video-list">
-        <% @top_videos.each do |video| %>
-          <li>
-            <a href="<%= clip_path(video.clip_id) %>"><img src="<%= video.cdn_thumbnail_url %>" class="img-rounded img-responsive" /></a>
-          </li>
-        <% end %>
-      </ul>
-    </div>
   <% else %>
     <p>
       No clips for <%= @game.name %> yet.
     </p>
   <% end %>
+
 <% else %>
   <p>
     Game not found.

@@ -1,0 +1,5 @@
+<div class="col-md-<%= width %>">
+    <div class="screenshot screenshot-<%= type %>">
+        <a href="<%= user_screenshot_path(screenshot.user.gamertag, screenshot.xuid) %>"><img src="<%= ImageHelper.resized(screenshot.cdn_url, 375) %>" /></a>
+    </div>
+</div>

@@ -1,81 +1,174 @@
 .video {
-  background: transparent no-repeat center center;
-  background-size: cover;
-  margin-bottom: 30px;
-  padding-bottom: 56%;
-  overflow: hidden;
   position: relative;
 
-  a {
-    text-decoration: none;
-  }
-
-  span.title {
-    display: block;
-
-    font-family: Geomanist-Book;
-    font-size: em(24);
-    color: white;
-    line-height: em(24);
-
-    a {
-        color: white;
-    }
-  }
-
-  span.subtitle {
-    display: block;
-
-    color: white;
-    font-size: em(18);
-  }
-
-  .description {
-      padding: 20px;
-      position:absolute;
-      bottom:0;
-      z-index: 10;
-  }
-
-  .accent {
-      width: 200%;
-      background: $brand-primary;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-
-      z-index: 9;
-
-      @include transform(translateX(-12%) translateY(103%) rotate(15deg));
+  .poster {
+      background: transparent no-repeat center center;
+      background-size: cover;
+      margin-bottom: 30px;
+      padding-bottom: 56%;
+      overflow: hidden;
+      position: relative;
   }
 
   a.play {
-    position: absolute;
-    top: calc(50% - 61px);
-    left: calc(50% - 61px);
-    background: white;
-    display: inline-block;;
+      text-transform: uppercase;
+      font-family: Geomanist-Medium;
+      font-size: em(28);
+      letter-spacing: 2.33px;
+      line-height: em(40);
 
-    padding-top: 22px;
-    padding-bottom: 18px;
-    padding-left: 23px;
-    padding-right: 17px;
+      text-align: center;
+      vertical-align: middle;
+  }
 
-    @include border-top-radius(60px);
-    @include border-right-radius(60px);
-    @include border-bottom-radius(60px);
-    @include border-left-radius(60px);
+  &.video-large, &.video-medium {
+      a.play {
+        position: absolute;
+        top: calc(50% - 61px);
+        left: calc(50% - 61px);
+        background: white;
+        display: inline-block;;
 
-    /* SIGN UP: */
-    text-transform: uppercase;
-    font-family: Geomanist-Medium;
-    font-size: em(28);
-    letter-spacing: 2.33px;
-    line-height: em(40);
+        padding-top: 22px;
+        padding-bottom: 18px;
+        padding-left: 23px;
+        padding-right: 17px;
 
-    text-align: center;
-    vertical-align: middle;
+        @include border-top-radius(60px);
+        @include border-right-radius(60px);
+        @include border-bottom-radius(60px);
+        @include border-left-radius(60px);
+      }
+
+      .description {
+          padding: 20px;
+          position:absolute;
+          bottom:0;
+          z-index: 10;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      span.title {
+        display: block;
+
+        font-family: Geomanist-Book;
+        font-size: em(24);
+        color: white;
+        line-height: em(24);
+
+        a {
+            color: white;
+        }
+      }
+
+      span.subtitle {
+        display: block;
+
+        color: white;
+        font-size: em(18);
+      }
+
+      .accent {
+          width: 200%;
+          background: $brand-primary;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 100%;
+
+          z-index: 9;
+
+          @include transform(translateX(-12%) translateY(103%) rotate(15deg));
+      }
+  }
+
+  &.video-medium {
+      a.play {
+        top: calc(40% - 39px);
+        left: calc(50% - 39px);
+
+        padding-top: 36px;
+        padding-bottom: 30px;
+        padding-left: 8px;
+        padding-right: 6px;
+
+        @include border-top-radius(60px);
+        @include border-right-radius(60px);
+        @include border-bottom-radius(60px);
+        @include border-left-radius(60px);
+
+        font-size: em(28);
+        letter-spacing: 2.33px;
+        line-height: em(8);
+      }
+
+      .description {
+          padding: 10px;
+          position:absolute;
+          bottom:0;
+          z-index: 10;
+      }
+
+      span.title {
+        font-size: em(20);
+        line-height: em(20);
+      }
+
+      span.subtitle {
+        font-size: em(16);
+      }
+  }
+
+  &.video-small {
+      overflow: visible;
+
+      a.play {
+          color: white;
+          position: absolute;
+          top: calc(50% - 32px);
+          left: calc(50% - 32px);
+
+          &:hover {
+              text-decoration: none;
+          }
+      }
+
+      .poster {
+          margin-bottom: 5px;
+      }
+
+      .description {
+          color: $grey;
+
+          text-overflow: ellipsis;
+          word-wrap: break-word;
+      }
+
+      span.title {
+        font-size: em(14);
+        line-height: em(24);
+        display: inline;
+      }
+
+      span.subtitle {
+        font-size: em(14);
+        display: block;
+      }
+  }
+
+  .video-js {
+      padding-top: 56.25%;
+  }
+
+  .vjs-fullscreen {
+      padding-top: 0px;
+  }
+
+  .vjs-playing + .description {
+      display: none;
   }
 }
