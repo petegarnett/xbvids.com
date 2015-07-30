@@ -34,16 +34,19 @@ body {
     background: $brand-primary;
 }
 
-.container-body, .container-footer {
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-top: 48px;
-    padding-bottom: 48px;
+
+.container-fluid{
+	padding:0;
+}
+
+ .container-footer {
+    padding:48px 4.16%;
 }
 
 .container-body {
     color: $brand-primary;
     background: white;
+    padding-bottom:48px;
 }
 
 .container-footer {
@@ -55,12 +58,37 @@ body {
     margin-bottom: 20px;
 }
 
+header.header-row{
+	padding-left:4.16%;
+	padding-right:4.16%;
+    padding-top: 48px;
+}
+
+	.menu-row{
+		padding-left:4.16%;
+		padding-right:4.16%;
+	}
+
+.page-width{
+	> section{
+		padding-left:4.16%;
+		padding-right:4.16%;
+
+		&.top-details{
+			margin: 0 0 20px;
+		}
+	}
+
+}
+
+
+
+
+
 .row-breakout {
     background-color: $brand-primary;
-    margin-left: -500px;
-    padding-left: 485px;
-    margin-right: -500px;
-    padding-right: 485px;
+    padding-left:4.16%;
+	padding-right:4.16%;
     padding-top: 30px;
     padding-bottom: 30px;
 }

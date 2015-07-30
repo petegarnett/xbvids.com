@@ -1,5 +1,7 @@
-<h1>Games</h1>
-
+<section class="top-details">
+	<h1>Games</h1>
+</section>
+<section>
 <% if @games.length > 0 %>
   <ul class="game-list">
     <% @games.each do |game| %>
@@ -16,4 +18,5 @@
   <p>
     No games yet!
   </p>
+</section>
 <% end %>

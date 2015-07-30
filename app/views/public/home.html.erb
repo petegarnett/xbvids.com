@@ -1,4 +1,4 @@
-<section>
+<section class="most-watched">
     <h3 class="title">Most Watched Clips</h3>
     <div class="row">
         <%= render 'shared/video', :video => @most_watched_videos.first,  :type => 'large',  :width => 6 %>
@@ -11,7 +11,7 @@
     </div>
 </section>
 
-<section>
+<section class="latest">
     <h3 class="title">Latest Uploads</h3>
     <div class="row">
         <%= render 'shared/video', :video => @latest_videos.first,  :type => 'small', :width => 2 %>
@@ -23,7 +23,7 @@
     </div>
 </section>
 
-<section>
+<section class="top-clips">
     <h3 class="title">Top <%= @top_game.name %> Clips</h3>
     <div class="row">
         <%= render 'shared/video', :video => @top_game_videos.first,  :type => 'small', :width => 3 %>
@@ -33,7 +33,7 @@
     </div>
 </section>
 
-<section>
+<section class="popular-games">
     <h3 class="title">Popular Games</h3>
     <div class="row">
         <%= render 'shared/game', :game => @top_games.first,  :type => 'full', :width => 3 %>

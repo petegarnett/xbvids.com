@@ -1,5 +1,8 @@
-<h1>Users</h1>
 
+<section class="top-details">
+	<h1>Users</h1>
+</section>
+<section>
 <% if @users.count > 0 %>
   <ul class="users-list">
     <% @users.each do |user| %>
@@ -14,4 +17,5 @@
   <p>
     No users yet!
   </p>
+</section>
 <% end %>

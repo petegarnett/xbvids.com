@@ -5,15 +5,15 @@
   <% content_for :title_bar do %>
     <a href="<%= user_screenshots_path(@user.gamertag) %>">Screenshots</a>
   <% end %>
-
-  <h1><%= @user.gamertag %></h1>
-
-  <ul class="nav nav-pills">
-    <li role="presentation" class="active"><a href="<%= user_path(@user.gamertag) %>">Videos</a></li>
-    <li role="presentation"><a href="<%= user_screenshots_path(@user.gamertag) %>">Screenshots</a></li>
-  </ul>
-  <br />
-
+  <section class="top-details">
+    <h1><%= @user.gamertag %></h1>
+  
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="<%= user_path(@user.gamertag) %>">Videos</a></li>
+      <li role="presentation"><a href="<%= user_screenshots_path(@user.gamertag) %>">Screenshots</a></li>
+    </ul>
+  </section> 
+  <section class="user-video-grid">
   <% if @videos.count > 0 %>
 
     <div class="row">
@@ -28,8 +28,11 @@
       <%= @user.gamertag %> has not uploaded any videos yet.
     </p>
   <% end %>
+  </section>
 <% else %>
-  <p>
-    User not found.
-  </p>
+  <section>
+    <p>
+      User not found.
+    </p>
+  </section>
 <% end %>

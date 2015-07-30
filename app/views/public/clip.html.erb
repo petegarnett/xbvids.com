@@ -31,8 +31,9 @@
     <!-- <script src="//platform.twitter.com/widgets.js" defer></script> -->
   <% end %>
 
-  <h3><%= @video.user.gamertag %> playing <%= @video.title %></h3>
-
+  <section class="top-details">
+    <h3><%= @video.user.gamertag %> playing <%= @video.title %></h3>  
+  </section>
   <div class="row row-breakout vgutter-row">
       <%= render 'shared/video', :video => @video,  :type => 'large', :width => 10, :playable => true %>
       <div class="col-md-2">
@@ -46,28 +47,29 @@
           </div>
       </div>
   </div>
-
+  <section>
   <div class="row">
+    
       <div class="col-md-10">
           <form class="js-vote vote-form" action="<%= vote_path %>" method="post">
               <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
               <input type="hidden" name="type" value="mlg" />
 
-              <button class="btn-vote"><span class="icon">😎</span> <span class="js-mlg_percent"><%= @video.mlg_percent.to_i %></span>% <span class="tag">MLG</span></button>
+              <button class="btn-vote"><span class="icon"></span> <span class="js-mlg_percent"><%= @video.mlg_percent.to_i %></span>% <span class="tag">MLG</span></button>
           </form>
 
           <form class="js-vote vote-form" action="<%= vote_path %>" method="post">
               <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
               <input type="hidden" name="type" value="wtf" />
 
-              <button class="btn-vote"><span class="icon">😮</span> <span class="js-wtf_percent"><%= @video.wtf_percent.to_i %></span>% <span class="tag">WTF</span></button>
+              <button class="btn-vote"><span class="icon"></span> <span class="js-wtf_percent"><%= @video.wtf_percent.to_i %></span>% <span class="tag">WTF</span></button>
           </form>
 
           <form class="js-vote vote-form" action="<%= vote_path %>" method="post">
               <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
               <input type="hidden" name="type" value="lol" />
 
-              <button class="btn-vote"><span class="icon">😂</span> <span class="js-lol_percent"><%= @video.lol_percent.to_i %></span>% <span class="tag">LOL</span></button>
+              <button class="btn-vote"><span class="icon"></span> <span class="js-lol_percent"><%= @video.lol_percent.to_i %></span>% <span class="tag">LOL</span></button>
           </form>
       </div>
       <div class="col-md-2">
@@ -80,8 +82,9 @@
               </p>
           </div>
       </div>
+    
   </div>
-
+  </section>
   <section>
       <h3 class="title">More clips from <%= @video.user.gamertag %></h3>
       <div class="row">

@@ -2,7 +2,6 @@
 
 <div class="col-md-<%= width %>">
     <div class="video video-<%= type %>">
-
         <% if can_play %>
             <video controls autoplay id="video" class="video-js vjs-default-skin" width="auto" height="auto" poster="<%= video.cdn_thumbnail_url %>" >
                 <source type="video/mp4" src="<%= @video.cdn_clip_url %>">

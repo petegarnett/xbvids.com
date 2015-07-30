@@ -2,8 +2,10 @@
   <% content_for :title do %>
     <%= @game.name %>'s latest Xbox One game clips.
   <% end %>
-
-  <h1><%= @game.name %></h1>
+  
+  <section class="top-details">
+    <h1><%= @game.name %></h1>
+  </section>
 
   <% if @latest_videos.count > 0 or @top_videos.count > 0 %>
 
