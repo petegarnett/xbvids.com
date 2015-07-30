@@ -1,3 +1,5 @@
+
+
 .video {
   position: relative;
 
@@ -40,11 +42,18 @@
         @include border-left-radius(60px);
       }
 
+
+
       .description {
-          padding: 20px;
-          position:absolute;
-          bottom:0;
-          z-index: 10;
+          
+        position:absolute;
+        bottom:0px;
+        left:0; 
+        right: 0;
+        padding:10px 20px 10px; 
+        
+        z-index: 10;
+        @include transition(opacity 300ms ease-in-out, bottom 250ms ease-in-out);
       }
 
       a {
@@ -164,11 +173,32 @@
       padding-top: 56.25%;
   }
 
+
+.video-js + .description{ 
+    background: -moz-linear-gradient(left,  rgba(0,0,0,0.7) 24%, rgba(0,0,0,0) 68%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(24%,rgba(0,0,0,0.7)), color-stop(68%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.7) 24%,rgba(0,0,0,0) 68%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(0,0,0,0.7) 24%,rgba(0,0,0,0) 68%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(0,0,0,0.7) 24%,rgba(0,0,0,0) 68%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(0,0,0,0.7) 24%,rgba(0,0,0,0) 68%,rgba(0,0,0,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */     
+}
+
+
   .vjs-fullscreen {
       padding-top: 0px;
   }
 
+  .vjs-has-started:hover + .description{
+    bottom:39px;
+  }
+
+  .vjs-has-started + .description {
+      bottom:33px;
+  }
+
   .vjs-playing + .description {
-      display: none;
+    opacity: 0;
+    visibility: hidden;
   }
 }
