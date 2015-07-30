@@ -4,13 +4,13 @@
     <div class="video video-<%= type %>">
 
         <% if can_play %>
-            <video controls id="video" class="video-js vjs-default-skin" width="auto" height="auto" poster="<%= video.cdn_thumbnail_url %>">
+            <video controls autoplay id="video" class="video-js vjs-default-skin" width="auto" height="auto" poster="<%= video.cdn_thumbnail_url %>" >
                 <source type="video/mp4" src="<%= @video.cdn_clip_url %>">
                 <source type="rtmp/mp4" src="<%= @video.cdn_rtmp_original_url %>">
             </video>
         <% else %>
             <div class="poster" style="background-image: url('<%= video.cdn_thumbnail_url %>')">
-                <a href="<%= clip_path(video.clip_id) %>" class="play">Play</a>
+                <a href="<%= clip_path(video.clip_id) %>" class="play"><span>Play</span></a>
                 <div class="accent"></div>
             </div>
         <% end %>

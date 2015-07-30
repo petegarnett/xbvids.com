@@ -13,34 +13,91 @@
   }
 
   a.play {
-      text-transform: uppercase;
-      font-family: "geomanistmedium";
-      font-size: em(28);
-      letter-spacing: 2.33px;
-      line-height: em(40);
-
-      text-align: center;
-      vertical-align: middle;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+      span{
+        position: absolute;
+        top: 50%;
+        left:50%;
+        @include transform (translateX(-50%) translateY(-50%));
+        text-transform: uppercase;
+        font-family: "geomanistmedium";
+        font-size: em(28);
+        letter-spacing: 2.33px;
+        line-height: em(40);
+        text-align: center;
+        vertical-align: middle;
+      }
   }
 
+    &.video-large, &.video-medium {  
+        a.play {
+            
+            span{
+                padding:20px 20px 20px 21px;
+                &:after{
+                    content:'';
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: -1;
+                    background: white;
+                    border-radius:50%;
+                    border-bottom-left-radius: 0%;
+                }        
+            }
+        }
+    }
+    
+    &.video-large {  
+        a.play {
+            span{
+                top:calc(50% - 20px);
+            }
+        }
+    }
+
+    &.video-medium {  
+        a.play {
+            span{
+                top:calc(50% - 30px);
+                @include transform(translateX(-50%) translateY(-50%) scale(0.7));
+            }
+        }
+    }
+
+    &.video-small {  
+        a.play{
+            color:white;
+        }
+    }
+
+
   &.video-large, &.video-medium {
-      a.play {
-        position: absolute;
-        top: calc(50% - 61px);
-        left: calc(50% - 61px);
-        background: white;
-        display: inline-block;;
+      // a.play {
+      //   position: absolute;
+      //   top: calc(50% - 61px);
+      //   left: calc(50% - 61px);
+      //   background: white;
+      //   display: inline-block;;
 
-        padding-top: 22px;
-        padding-bottom: 18px;
-        padding-left: 23px;
-        padding-right: 17px;
+      //   padding-top: 22px;
+      //   padding-bottom: 18px;
+      //   padding-left: 23px;
+      //   padding-right: 17px;
 
-        @include border-top-radius(60px);
-        @include border-right-radius(60px);
-        @include border-bottom-radius(60px);
-        @include border-left-radius(60px);
-      }
+        
+      //   border-radius:50%;
+      //   // border-bottom-left-radius: 0%;
+        
+      // }
 
 
 
@@ -96,24 +153,24 @@
   }
 
   &.video-medium {
-      a.play {
-        top: calc(40% - 39px);
-        left: calc(50% - 39px);
+      // a.play {
+      //   top: calc(40% - 39px);
+      //   left: calc(50% - 39px);
 
-        padding-top: 36px;
-        padding-bottom: 30px;
-        padding-left: 8px;
-        padding-right: 6px;
+      //   padding-top: 36px;
+      //   padding-bottom: 30px;
+      //   padding-left: 8px;
+      //   padding-right: 6px;
 
-        @include border-top-radius(60px);
-        @include border-right-radius(60px);
-        @include border-bottom-radius(60px);
-        @include border-left-radius(60px);
+      //   @include border-top-radius(60px);
+      //   @include border-right-radius(60px);
+      //   @include border-bottom-radius(60px);
+      //   @include border-left-radius(60px);
 
-        font-size: em(28);
-        letter-spacing: 2.33px;
-        line-height: em(8);
-      }
+      //   font-size: em(28);
+      //   letter-spacing: 2.33px;
+      //   line-height: em(8);
+      // }
 
       .description {
           padding: 10px;
@@ -135,16 +192,16 @@
   &.video-small {
       overflow: visible;
 
-      a.play {
-          color: white;
-          position: absolute;
-          top: calc(50% - 32px);
-          left: calc(50% - 32px);
+      // a.play {
+      //     color: white;
+      //     position: absolute;
+      //     top: calc(50% - 32px);
+      //     left: calc(50% - 32px);
 
-          &:hover {
-              text-decoration: none;
-          }
-      }
+      //     &:hover {
+      //         text-decoration: none;
+      //     }
+      // }
 
       .poster {
           margin-bottom: 5px;
@@ -174,7 +231,8 @@
   }
 
 
-.video-js + .description{ 
+.video-js + .description{
+
     background: -moz-linear-gradient(left,  rgba(0,0,0,0.7) 24%, rgba(0,0,0,0) 68%, rgba(0,0,0,0) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right top, color-stop(24%,rgba(0,0,0,0.7)), color-stop(68%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(left,  rgba(0,0,0,0.7) 24%,rgba(0,0,0,0) 68%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
